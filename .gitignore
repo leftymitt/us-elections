@@ -1,0 +1,6 @@
+# proprietary formats are not appreciated.
+*.xlsx
+*.xlsx#
+
+# ignore raw data files
+raw_data/*
