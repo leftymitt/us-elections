@@ -3,4 +3,7 @@
 *.xlsx#
 
 # ignore raw data files
-raw_data/*
+raw_data/
+
+# don't track ipython checkpoints
+.ipynb_checkpoints/
