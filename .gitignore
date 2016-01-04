@@ -2,6 +2,10 @@
 *.xlsx
 *.xlsx#
 
+# backup files from editors
+*~
+*.swp
+
 # ignore raw data files
 raw_data/
 
