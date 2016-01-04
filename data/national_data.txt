@@ -86,7 +86,6 @@ Republican	Dwight D. Eisenhower	Richard M. Nixon	457	35,590,472	1956.0
 Democratic	Adlai Stevenson	Estes Kefauver	73	26,022,752	1956.0
 Democratic	John F. Kennedy	Lyndon B. Johnson	303	34,226,731 	1960.0
 Republican	Richard M. Nixon	Henry Cabot Lodge	219	34,108,157	1960.0
-Democratic	Harry F. Byrd	Strom Thurmond	15	0	1960.0
 Democratic	Lyndon B. Johnson	Hubert H. Humphrey	486	43,129,566 	1964.0
 Republican	Barry Goldwater	William E. Miller	52	27,178,188	1964.0
 Republican	Richard Nixon	Spiro Agnew	301	31,785,480	1968.0
