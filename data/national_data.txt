@@ -1,119 +1,225 @@
-Party	Presidential	Vice Presidential	Electoral Vote	Popular Vote	Year
-Democratic-Republican	Andrew Jackson	John C. Calhoun	99	151,271	1824.0
-Democratic-Republican	John Quincy Adams	John C. Calhoun	84	113,122	1824.0
-Democratic-Republican	William H. Crawford	Nathaniel Macon	41	40,856	1824.0
-Democratic-Republican	Henry Clay	Nathan Sanford	37	47,531	1824.0
-Democratic	Andrew Jackson	John C. Calhoun	178	642,553	1828.0
-National-Republican	John Quincy Adams	Richard Rush	83	500,897	1828.0
-Democratic	Andrew Jackson	Martin Van Buren	219	701,780	1832.0
-National-Republican	Henry Clay	John Sergeant	49	484,205	1832.0
-Independent	John Floyd	Henry Lee	11	0	1832.0
-Anti-Masonic	William Wirt	Amos Ellmaker	7	100,715	1832.0
-Democratic	Martin Van Buren	Richard Johnson	170	764,176	1836.0
-Whig	William Henry Harrison	Francis P. Granger	73	550,816	1836.0
-Whig	Hugh Lawson White	John Tyler	26	146,107	1836.0
-Whig	Daniel Webster	Francis P. Granger	14	41,201	1836.0
-Whig	Willie Person Mangum	John Tyler	11	0	1836.0
-Whig	William Henry Harrison	John Tyler	234	1,275,390	1840.0
-Democratic	Martin Van Buren	Richard Johnson	60	1,128,854	1840.0
-Democratic	James K. Polk	George M. Dallas	170	1,339,494	1844.0
-Whig	Henry Clay	Theodore Frelinghuysen	105	1,300,004	1844.0
-Whig	Zachary Taylor	Millard Fillmore	163	1,361,393	1848.0
-Democratic	Lewis Cass	William Butler	127	1,223,460	1848.0
-Free Soil	Martin Van Buren	Charles Adams, Sr.	0	291,501	1848.0
-Democratic	Franklin Pierce	William R. King	254	1,607,510	1852.0
-Whig	Winfield Scott	William Graham	42	1,386,942	1852.0
-Free Soil	John P. Hale	George Washington Julian	0	155,210	1852.0
-Democratic	James Buchanan	John C. Breckinridge	174	1,836,072	1856.0
-Republican	John C. Fremont	William L. Dayton	114	1,342,345	1856.0
-Whig-American	Millard Fillmore	Andrew Jackson Donelson	8	873,053	1856.0
-Republican	Abraham Lincoln	Hannibal Hamlin	180	1,865,908	1860.0
-Southern Democratic	John Breckenridge	Joseph Lane	72	848,019	1860.0
-Constitutional Union	John Bell	Edward Everett	39	590,901	1860.0
-Democratic	Stephen Douglas	Herschel Johnson	12	1,380,202	1860.0
-Republican	Abraham Lincoln	Andrew Johnson	212	2,220,846	1864.0
-Democratic	George McClellan	George Pendleton	21	1,809,445	1864.0
-Republican	Ulysses S. Grant	Schuyler Colfax	214	3,013,650	1868.0
-Democratic	Horatio Seymour	Francis Blair, Jr.	80	2,708,744	1868.0
-Republican	Ulysses S. Grant	Henry Wilson	286	3,598,468	1872.0
-Democratic	Horace Greeley	Benjamin Brown	0	2,835,315	1872.0
-Republican	Rutherford B. Hayes	William Wheeler	185	4,033,497	1876.0
-Democratic	Samuel Tilden	Thomas Hendricks	184	4,288,191	1876.0
-Republican	James A. Garfield	Chester A. Arthur	214	4,453,611	1880.0
-Democratic	Winfield S. Hancock	William English	155	4,445,256	1880.0
-Democratic	Grover Cleveland	Thomas Hendricks	219	4,915,586	1884.0
-Republican	James G. Blane	John Logan	182	4,852,916	1884.0
-Republican	Benjamin Harrison	Levi Morton	233	5,449,825	1888.0
-Democratic	Grover Cleveland	Allen Thurman	168	5,539,118	1888.0
-Democratic	Grover Cleveland	Adlai E. Stevenson	277	5,554,617	1892.0
-Republican	Benjamin Harrison	Whitelaw Reid	145	5,186,793	1892.0
-Populist	James B. Weaver	James Field	22	1,029,357	1892.0
-Republican	William McKinley	Garret Hobart	271	7,105,076	1896.0
-Democratic	William Jennings Bryan	Sewall/Watson	176	6,370,897	1896.0
-Republican	William McKinley	Theodore Roosevelt	292	7,219,193	1900.0
-Democratic	William Jennings Bryan	Adlai E. Stevenson	155	6,357,698	1900.0
-Republican	Theodore Roosevelt	Charles Fairbanks	336	7,625,599	1904.0
-Democratic	Alton B. Parker	Henry Davis	140	5,083,501	1904.0
-Republican	William Howard Taft	James S. Sherman	321	7,676,598	1908.0
-Democratic	William Jennings Bryan	John Kern	162	6,406,874	1908.0
-Democratic	Woodrow Wilson	Thomas R. Marshall	435	6,294,327	1912.0
-Progressive	Theodore Roosevelt	Hiram Johnson	88	4,120,207	1912.0
-Republican	William Howard Taft	Nicholas Butler	8	3,486,343	1912.0
-Socialist	Eugene V. Debs	Emil Seidel	0	900,370	1912.0
-Democratic	Woodrow Wilson	Thomas Marshall	277	9,126,063	1916.0
-Republican	Charles E. Hughes	Charles W. Fairbanks	254	8,547,030	1916.0
-Republican	Warren G. Harding	Calvin Coolidge	404	16,151,916	1920.0
-Democratic	James M. Cox	Franklin D. Roosevelt	127	9,134,074	1920.0
-Republican	Calvin Coolidge	Charles G. Dawes	382	15,724,310	1924.0
-Democratic	John W. Davis	Charles W. Bryan	136	8,386,532	1924.0
-Progressive	Robert LaFollette	Burton K. Wheeler	13	4,827,184	1924.0
-Republican	Herbert Hoover	Charles Curtis	444	21,432,823	1928.0
-Democratic	Alfred E. Smith	Joseph Robinson	87	15,004,336	1928.0
-Democratic	Franklin D. Roosevelt	John Garner	472	22,818,740	1932.0
-Republican	Herbert Hoover	Charles Curtis	59	15,760,425	1932.0
-Democratic	Franklin D. Roosevelt	John Garner	523	27,750,866	1936.0
-Republican	Alfred M. Landon	Frank Knox	8	16,679,683	1936.0
-Democratic	Franklin D. Roosevelt	Henry A. Wallace	449	27,243,218	1940.0
-Republican	Wendell L. Willkie	Charles L. McNary	82	22,334,940	1940.0
-Democratic	Franklin D. Roosevelt	Harry S Truman	432	25,612,610	1944.0
-Republican	Thomas E. Dewey	John W. Bricker	99	22,014,160	1944.0
-Democratic	Harry S Truman	Alben W. Barkley	303	24,105,810	1948.0
-Republican	Thomas E. Dewey	Earl Warren	189	21,970,064	1948.0
-States' Rights	Strom Thurmond	Fielding Wright	39	1,169,114	1948.0
-Republican	Dwight D. Eisenhower	Richard M. Nixon	442	33,777,945 	1952.0
-Democratic	Adlai Stevenson	John Sparkman	89	27,314,992	1952.0
-Republican	Dwight D. Eisenhower	Richard M. Nixon	457	35,590,472	1956.0
-Democratic	Adlai Stevenson	Estes Kefauver	73	26,022,752	1956.0
-Democratic	John F. Kennedy	Lyndon B. Johnson	303	34,226,731 	1960.0
-Republican	Richard M. Nixon	Henry Cabot Lodge	219	34,108,157	1960.0
-Democratic	Lyndon B. Johnson	Hubert H. Humphrey	486	43,129,566 	1964.0
-Republican	Barry Goldwater	William E. Miller	52	27,178,188	1964.0
-Republican	Richard Nixon	Spiro Agnew	301	31,785,480	1968.0
-Democratic	Hubert Humphrey	 Edmund Muskie	191	31,275,166	1968.0
-American Independent	George Wallace	Curtis LeMay	45	9,906,473	1968.0
-Republican	Richard M. Nixon	Spiro Agnew	520	47,169,911	1972.0
-Democratic	George McGovern	Sargent Shriver	17	29,170,383	1972.0
-Democratic	Jimmy Carter	Walter Mondale	297	40,830,763	1976.0
-Republican	Gerald R. Ford	Robert Dole	240	39,147,793	1976.0
-Republican	Ronald Reagan	George Bush	489	43,904,153	1980.0
-Democratic	Jimmy Carter	Walter Mondale	49	35,483,883	1980.0
-Independent	John Anderson	Patrick Lucey	0	5,720,060	1980.0
-Republican	Ronald Reagan	George Bush	525	54,455,075	1984.0
-Democratic	Walter Mondale	Geraldine Ferraro	13	37,577,185	1984.0
-Republican	George Bush	Dan Quayle	426	48,886,097	1988.0
-Democratic	Michael Dukakis	Lloyd Bentsen	111	41,809,074	1988.0
-Democratic	William J. Clinton	Albert Gore, Jr.	370	44,909,326	1992.0
-Republican	George Bush	Dan Quayle	168	39,103,882	1992.0
-Independent	H. Ross Perot	James Stockdale	0	19,741,657	1992.0
-Democratic	William J. Clinton	Albert Gore, Jr.	379	47,402,357	1996.0
-Republican	Robert Dole	Jack Kemp	159	39,198,755	1996.0
-Reform	H. Ross Perot	Pat Choate	0	8,085,402	1996.0
-Republican	George W. Bush	Richard Cheney	271	50,455,156	2000.0
-Democratic	Albert Gore, Jr.	Joseph Lieberman	266	50,992,335	2000.0
-Green	Ralph Nader	Winona LaDuke	0	2,882,738	2000.0
-Republican	George W. Bush	Richard Cheney	286	62,040,610	2004.0
-Democratic	John Kerry	John Edwards	251	59,028,444	2004.0
-Democratic	Barack Obama	Joseph Biden	365	69,456,897	2008.0
-Republican	John McCain	Sarah Palin	173	59,934,814	2008.0
-Democratic	Barack Obama	Joseph Biden	332	65,899,660 	2012.0
-Republican	Mitt Romney	Paul Ryan	206	60,932,152	2012.0
+PresidentialCandidate	Vice PresidentialCandidate	PoliticalParty	Popular Vote	Electoral Vote	Year
+John Quincy Adams	John Calhoun	Democratic-Republican	113,142	84	1824.0
+Andrew Jackson	John Calhoun	Democratic-Republican	151,363	99	1824.0
+William Crawford	Nathaniel Macon	Democratic-Republican	41,032	41	1824.0
+Henry Clay	Nathan Sanford	Democratic-Republican	47,545	37	1824.0
+Unpledged Republican	-	Republican	6,616	0	1824.0
+Others	-	-	6,230	0	1824.0
+Andrew Jackson	John Calhoun	Democratic	642,806	178	1828.0
+John Quincy Adams	Richard Rush	Nat'l Republican	501,967	83	1828.0
+Others	-	-	4,443	0	1828.0
+Andrew Jackson	Martin Van Buren	Democratic	702,735	219	1832.0
+Henry Clay	John Sergeant	Nat'l Republican	474,107	49	1832.0
+John Floyd	Henry Lee	Ind. Democrat	0	11	1832.0
+William Wirt	Amos Ellmaker	Anti-Masonic	99,817	7	1832.0
+Others	-	-	7,061	0	1832.0
+Martin Van Buren	Richard Johnson	Democratic	763,291	170	1836.0
+William H. Harrison	Francis Granger	Whig	549,907	73	1836.0
+Hugh White	John Tyler	Whig	146,107	26	1836.0
+Daniel Webster	Francis Granger	Whig	41,201	14	1836.0
+Willie Mangum	John Tyler	Whig	0	11	1836.0
+Other (+)	 - 	 - 	2,305	0	1836.0
+William H. Harrison	John Tyler	Whig	1,275,583	234	1840.0
+Martin Van Buren	Richard M. Johnson	Democratic	1,129,645	60	1840.0
+James G. Birney	Thomas Earle	Liberty	7,453	0	1840.0
+Other (+)	 - 	 - 	13	0	1840.0
+James K. Polk	George M. Dallas	Democratic	1,339,570	170	1844.0
+Henry Clay	Theodore Frelinghuysen	Whig	1,300,157	105	1844.0
+James G. Birney	Thomas Morris	Liberty	62,054	0	1844.0
+Other (+)	 - 	 - 	2,083	0	1844.0
+Zachary Taylor  	Millard Fillmore	Whig	1,360,235	163	1848.0
+Lewis Cass  	William O. Butler	Democratic	1,222,353	127	1848.0
+Martin Van Buren 	Charles F. Adams	Free Soil	291,475	0	1848.0
+Other (+)	 - 	 - 	2,755	0	1848.0
+Franklin Pierce  	William King	Democratic	1,605,943	254	1852.0
+Winfield Scott  	William Graham	Whig	1,386,418	42	1852.0
+John Hale  	George Julian	Free Soil	155,799	0	1852.0
+Other (+)	 - 	 - 	11,480	0	1852.0
+James Buchanan  	John Breckenridge	Democratic	1,835,140	174	1856.0
+John Fr�mont  	William Dayton	Republican	1,340,668	114	1856.0
+Millard Fillmore  	Andrew Donelson	Whig-American	872,703	8	1856.0
+Other (+)	 - 	 - 	3,094	0	1856.0
+Abraham Lincoln  	Hannibal Hamlin  	Republican	1,855,993	180	1860.0
+John Breckenridge 	Joseph Lane	Southern Democrat	851,844	72	1860.0
+John Bell  	Edward Everett	Constitutional Union	590,946	39	1860.0
+Stephen Douglas  	Herschel Johnson	Democratic	1,381,944	12	1860.0
+Other (+)	 - 	 - 	540	0	1860.0
+Abraham Lincoln	Andrew Johnson	Republican	2,211,317	212	1864.0
+George McClellan 	George Pendleton	Democratic	1,806,227	21	1864.0
+Other (+)	 - 	 - 	658	0	1864.0
+Ulysses Grant  	Schuyler Colfax	Republican	3,013,790	214	1868.0
+Horatio Seymour	Francis Blair, Jr.	Democratic	2,708,980	80	1868.0
+Other (+)	 - 	 - 	46	0	1868.0
+Ulysses Grant  	Henry Wilson	Republican	3,597,439	286	1872.0
+Horace Greeley  	B. Gratz Brown	Democratic	2,833,710	66	1872.0
+Charles O'Conor  	John Q. Adams, II	Straight-Out Democrat 	23,054	0	1872.0
+Other (+)	 - 	 - 	17,780	0	1872.0
+Rutherford Hayes	William Wheeler	Republican	4,034,142	185	1876.0
+Samuel Tilden	Thomas Hendricks	Democratic	4,286,808	184	1876.0
+Peter Cooper	Samuel Cary	Greenback	83,726	0	1876.0
+Other (+)	 - 	 - 	13,983	0	1876.0
+James Garfield	Chester Arthur	Republican	4,453,337	214	1880.0
+Winfield Hancock	William English	Democratic	4,444,267	155	1880.0
+James Weaver	Benjamin Chambers	Greenback	306,135	0	1880.0
+Other (+)	 - 	 - 	13,671	0	1880.0
+Grover Cleveland	Thomas Hendricks	Democratic	4,914,482	219	1884.0
+James Blaine	John Logan	Republican	4,856,903	182	1884.0
+John St. John	William Daniel	Prohibition	150,890	0	1884.0
+Benjamin Butler  	Absolom West	Greenback	134,294	0	1884.0
+Other (+)	 - 	 - 	3,576	0	1884.0
+Benjamin Harrison	Levi Morton	Republican	5,443,633	233	1888.0
+Grover Cleveland	Allen Thurman	Democratic	5,538,163	168	1888.0
+Clinton Fisk	John Brooks	Prohibition	250,017	0	1888.0
+Alson Streeter	Charles Cunningham	Union Labor	149,115	0	1888.0
+Other (+)	 - 	 - 	7,918	0	1888.0
+Grover Cleveland	Adlai Stevenson	Democratic	5,553,898	277	1892.0
+Benjamin Harrison	Whitelaw Reid	Republican	5,190,799	145	1892.0
+James Weaver	James Field	Populist	1,026,595	22	1892.0
+John Bidwell	James Cranfill	Prohibition	270,889	0	1892.0
+Other (+)	 - 	 - 	25,846	0	1892.0
+William McKinley	Garret Hobart	Republican	7,112,138	271	1896.0
+William Bryan	Arthur SewallThomas Watson	Democratic	6,510,807	176	1896.0
+John Palmer	Simon Buckner	National Democrat	133,537	0	1896.0
+Joshua Levering	Hale Johnson	Prohibition	124,896	0	1896.0
+Charles Matchett	Matthew Maguire	Socialist Labor	36,359	0	1896.0
+Other (+)	 - 	 - 	20,937	0	1896.0
+William McKinley	Theodore Roosevelt	Republican	7,218,283	292	1900.0
+William Bryan	Adlai Stevenson	Democratic	6,358,149	155	1900.0
+John Woolley	Henry Metcalf	Prohibition	209,132	0	1900.0
+Eugene Debs	Job Harriman	Socialist	86,973	0	1900.0
+Wharton Barker	Ignatius Donnelly	Populist	50,847	0	1900.0
+Joseph Maloney	Valentine Remmel	Socialist Labor	40,968	0	1900.0
+Other (+)	 - 	 - 	7,494	0	1900.0
+Theodore Roosevelt	Charles Fairbanks	Republican	7,630,557	336	1904.0
+Alton Parker	Henry Davis	Democratic	5,084,537	140	1904.0
+Eugene Debs	Benjamin Hanford	Socialist	402,810	0	1904.0
+Silas Swallow	George Carroll	Prohibition	259,103	0	1904.0
+Thomas Watson	Thomas Tibbles	Populist	114,062	0	1904.0
+Other (+)	 - 	 - 	34,690	0	1904.0
+William Taft	James Sherman	Republican	7,678,174	321	1908.0
+William Bryan	John Kern	Democratic	6,409,007	162	1908.0
+Eugene Debs	Benjamin Hanford	Socialist	420,856	0	1908.0
+Eugene Chafin	Aaron Watkins	Prohibition	254,081	0	1908.0
+Thomas Hisgen	John Graves	Independence	82,580	0	1908.0
+Other (+)	 - 	 - 	44,411	0	1908.0
+Woodrow Wilson	Thomas Marshall	Democratic	6,294,284	435	1912.0
+Theodore Roosevelt	Hiram Johnson	Progressive	4,120,609	88	1912.0
+William Taft	Nicholas Butler	Republican	3,487,937	8	1912.0
+Eugene Debs	Emil Seidel	Socialist	900,742	0	1912.0
+Eugene Chafin	Aaron Watkins	Prohibition	208,115	0	1912.0
+Other (+)	 - 	 - 	33,859	0	1912.0
+Woodrow Wilson	Thomas Marshall	Democratic	9,130,861	277	1916.0
+Charles Hughes	Charles Fairbanks	Republican	8,549,700	254	1916.0
+Allan Benson	George Kirkpatrick	Socialist	590,190	0	1916.0
+James Hanly	Ira Landrith	Prohibition	221,302	0	1916.0
+Other (+)	 - 	 - 	49,265	0	1916.0
+Warren Harding	Calvin Coolidge	Republican	16,166,126	404	1920.0
+James Cox	Franklin Roosevelt	Democratic	9,140,256	127	1920.0
+Eugene Debs	Seymour Stedman	Socialist	914,191	0	1920.0
+Parley Christiansen	Maximilian Hayes	Farmer-Labor	265,395	0	1920.0
+Aaron Watkins	David Colvin	Prohibition	188,709	0	1920.0
+Other (+)	 - 	 - 	113,548	0	1920.0
+Calvin Coolidge	Charles Dawes	Republican	15,719,068	382	1924.0
+John Davis	Charles Bryan	Democratic	8,384,341	136	1924.0
+Robert LaFollette	Burton Wheeler	Progressive	4,833,821	13	1924.0
+Other (+)	 - 	 - 	155,394	0	1924.0
+Herbert Hoover	Charles Curtis	Republican	21,428,584	444	1928.0
+Alfred Smith	Joseph Robinson	Democratic	15,015,863	87	1928.0
+Norman Thomas	James Maurer	Socialist	267,519	0	1928.0
+Other (+)	 - 	 - 	96,995	0	1928.0
+Franklin Roosevelt	John Garner	Democratic	22,821,513	472	1932.0
+Herbert Hoover	Charles Curtis	Republican	15,761,532	59	1932.0
+Norman Thomas	James Maurer	Socialist	884,895	0	1932.0
+William Foster	James Ford	Communist	103,314	0	1932.0
+Other (+)	 - 	 - 	181,200	0	1932.0
+Franklin Roosevelt	John Garner	Democratic	27,757,431	523	1936.0
+Alfred Landon	Frank Knox	Republican	16,683,574	8	1936.0
+William Lemke	Thomas O'Brian	Union	892,381	0	1936.0
+Norman Thomas	George Nelson	Socialist	187,971	0	1936.0
+Other (+)	 - 	 - 	133,031	0	1936.0
+Franklin Roosevelt	Henry Wallace	Democratic	27,314,449	449	1940.0
+Wendell Willkie	Charles McNary	Republican	22,348,343	82	1940.0
+Other (+)	 - 	 - 	250,060	0	1940.0
+Franklin Roosevelt	Harry Truman	Democratic	25,612,916	432	1944.0
+Thomas Dewey	John Bricker	Republican	22,017,929	99	1944.0
+No Candidate	-	Texas Regulars	135,439	0	1944.0
+Other (+)	 - 	 - 	210,808	0	1944.0
+Harry Truman	Alben Barkley	Democratic	24,179,347	303	1948.0
+Thomas Dewey	Earl Warren	Republican	21,991,292	189	1948.0
+J. Strom Thurmond	Fielding Wright	State's Rights	1,175,946	39	1948.0
+Henry Wallace	Glen Taylor	Progressive	1,157,328	0	1948.0
+Norman Thomas	Tucker Smith	Socialist	139,570	0	1948.0
+Other (+)	 - 	 - 	151,227	0	1948.0
+Dwight Eisenhower	Richard Nixon	Republican	34,075,529	442	1952.0
+Adlai Stevenson	John Sparkman	Democratic	27,375,090	89	1952.0
+Other (+)	 - 	 - 	301,323	0	1952.0
+Dwight Eisenhower	Richard Nixon	Republican	35,579,180	457	1956.0
+Adlai Stevenson	Estes Kefauver	Democratic	26,028,028	73	1956.0
+Unpledged Elector	-	Independent	196,318	0	1956.0
+Other (+)	 - 	 - 	218,453	0	1956.0
+John Kennedy	Lyndon Johnson	Democratic	34,220,984	303	1960.0
+Richard Nixon	Henry Lodge	Republican	34,108,157	219	1960.0
+Unpledged Electors	-	Democratic	286,359	15	1960.0
+Other (+)	 - 	 - 	216,983	0	1960.0
+Lyndon Johnson	Hubert Humphrey	Democratic	43,129,040	486	1964.0
+Barry Goldwater	William Miller	Republican	27,175,754	52	1964.0
+Unpledged Elector	-	-	210,732	0	1964.0
+Other (+)	 - 	 - 	126,013	0	1964.0
+Richard Nixon	Spiro Agnew	Republican	31,783,783	301	1968.0
+Hubert Humphrey	Edmund Muskie	Democratic	31,271,839	191	1968.0
+George Wallace	Curtis LeMay	American Ind.	9,901,118	46	1968.0
+Other (+)	 - 	 - 	243,259	0	1968.0
+Richard Nixon	Spiro Agnew	Republican	47,168,710	520	1972.0
+George McGovern	R. Sargent Shriver	Democratic	29,173,222	17	1972.0
+John Hospers	Theodora Nathan	Libertarian	3,674	1	1972.0
+John Schmitz	Thomas Anderson	American	1,100,896	0	1972.0
+Other (+)	 - 	 - 	297,528	0	1972.0
+James Carter	Walter Mondale	Democratic	40,831,881	297	1976.0
+Gerald Ford	Robert Dole	Republican	39,148,634	240	1976.0
+Eugene McCarthy	-	Independent	744,763	0	1976.0
+Other (+)	 - 	 - 	815,502	0	1976.0
+Ronald Reagan	George Bush	Republican	43,903,230	489	1980.0
+James Carter	Walter Mondale	Democratic	35,480,115	49	1980.0
+John Anderson	Patrick Lucey	Independent	5,719,850	0	1980.0
+Edward Clark	David Koch	Libertarian	921,128	0	1980.0
+Barry Commoner	LaDonna Harris	Citizens	233,052	0	1980.0
+Other (+)	 - 	 - 	252,303	0	1980.0
+Ronald Reagan	George Bush	Republican	54,455,472	525	1984.0
+Walter Mondale	Geraldine Ferraro	Democratic	37,577,352	13	1984.0
+Other (+)	 - 	 - 	620,409	0	1984.0
+George Bush	J. Danforth Quayle	Republican	48,886,597	426	1988.0
+Michael Dukakis	Lloyd Bentsen	Democratic	41,809,476	111	1988.0
+Ron Paul	Andre Marrou	Libertarian	431,750	0	1988.0
+Other (+)	 - 	 - 	466,863	0	1988.0
+William Clinton	Albert Gore Jr.	Democratic	44,909,806	370	1992.0
+George Bush	J. Danforth Quayle	Republican	39,104,550	168	1992.0
+H. Ross Perot	James Stockdale	Independent	19,743,821	0	1992.0
+Andre Marrou	Nancy Lord	Libertarian	290,087	0	1992.0
+Other (+)	 - 	 - 	378,347	0	1992.0
+William Clinton	Albert Gore Jr.	Democratic	47,400,125	379	1996.0
+Robert Dole	Jack Kemp	Republican	39,198,755	159	1996.0
+H. Ross Perot	Pat Choate	Reform	8,085,402	0	1996.0
+Ralph Nader	Winona LaDuke	Green	685,435	0	1996.0
+Harry Browne	Jo Jorgensen	Libertarian	485,798	0	1996.0
+Other (+)	 - 	 - 	420,125	0	1996.0
+George W. Bush	Richard Cheney	Republican	50,462,412	271	2000.0
+Albert Gore Jr.	Joseph Lieberman	Democratic	51,009,810	266	2000.0
+Ralph Nader	Winona LaDuke	Green	2,883,443	0	2000.0
+Patrick Buchanan	Ezola Foster	Reform	449,181	0	2000.0
+Harry Browne	Art Olivier	Libertarian	384,532	0	2000.0
+Other (+)	 - 	 - 	236,607	0	2000.0
+George W. Bush	Richard Cheney	Republican	62,039,572	286	2004.0
+John Kerry	John Edwards	Democratic	59,027,115	251	2004.0
+Ralph Nader	Peter Camejo	Independent	465,642	0	2004.0
+Michael Badnarik	Richard Campagna	Libertarian	397,265	0	2004.0
+Other (+)	 - 	 - 	373,996	0	2004.0
+Barack H. Obama	Joseph R. Biden, Jr.	Democratic	69,499,428	365	2008.0
+John S. McCain, III	Sarah H. Palin	Republican	59,950,323	173	2008.0
+Ralph Nader	Matt Gonzalez	Independent	739,278	0	2008.0
+Bob Barr	Wayne Allyn Root	Libertarian	523,433	0	2008.0
+Other (+)	 - 	 - 	761,243	0	2008.0
+Barack H. Obama	Joseph R. Biden, Jr.	Democratic	65,918,507	332	2012.0
+Willard Mitt Romney	Paul Ryan	Republican	60,934,407	206	2012.0
+Gary Johnson	James P. Gray	Libertarian	1,275,923	0	2012.0
+Jill Stein	Cheri Honkala	Green	469,015	0	2012.0
+Other (+)	 - 	 - 	639,790	0	2012.0
