@@ -13,38 +13,53 @@ function fixdata(arr)
 end
 
 #load data and tweak
-national_data = readtable("data/national_data.txt", separator='\t');
-national_data[:Popular_Vote] = fixdata(national_data[:Popular_Vote]);
+state_data = readtable("data/state_data.txt", separator='\t');
+state_data[:Popular_Vote] = fixdata(state_data[:Popular_Vote]);
+rename!(state_data, :PoliticalParty, :Party)
 
 # get popular vote percents by year
-national_data[:Popular_Total] = 
-	join(national_data, by(national_data, :Year, df -> sum(df[:Popular_Vote])), 
-	     on=:Year)[:x1]
-national_data[:Popular_Percent] = 
-	map((vote, total) -> vote / total * 100, national_data[:Popular_Vote], 
-	    national_data[:Popular_Total])
+state_data[:Popular_Total] = 
+	join(state_data, by(state_data, [:Year, :State], 
+	                    df -> sum(df[:Popular_Vote])), 
+	     on=[:State, :Year])[:x1]
+state_data[:Popular_Percent] = 
+	map((vote, total) -> vote / total * 100, state_data[:Popular_Vote], 
+	    state_data[:Popular_Total])
 
 # get electoral vote percents by year
-national_data[:Electoral_Vote] = fixdata(national_data[:Electoral_Vote]);
-national_data[:Electoral_Total] = 
-	join(national_data,
-        by(national_data, :Year, df -> sum(df[:Electoral_Vote])), on=:Year)[:x1]
-national_data[:Electoral_Percent] = 
-	map((vote, total) -> vote / total * 100, national_data[:Electoral_Vote], 
-	    national_data[:Electoral_Total])
-
-#national_m = melt(national_data, :Party);
+state_data[:Electoral_Total] = 
+	join(state_data, by(state_data, [:Year, :State], 
+	                    df -> sum(df[:Electoral_Vote])), 
+	     on=[:State, :Year])[:x1]
+state_data[:Electoral_Percent] = 
+	map((vote, total) -> vote / total * 100, state_data[:Electoral_Vote], 
+	    state_data[:Electoral_Total])
 
 # general plots
-plot(national_data, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point)
-plot(national_data, x=:Year, y=:Electoral_Percent, color=:Party, Geom.line, Geom.point)
-plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, Geom.point)
+for state in groupby(state_data, :State)
+	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point)
+	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
+	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 27cm, 9cm), p)
+#	display(p)
+end
 
 # democrats and republicans
-republican_data = national_data[national_data[:Party] .== "Republican", :]
-democrat_data = national_data[national_data[:Party] .== "Democratic", :]
+republican_data = state_data[state_data[:Party] .== "Republican", :]
+democrat_data = state_data[state_data[:Party] .== "Democratic", :]
 bipartisan_data = vcat(republican_data, democrat_data)
 
-plot(bipartisan_data, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point, Scale.discrete_color_manual("red", "blue") )
-plot(bipartisan_data, x=:Year, y=:Electoral_Percent, color=:Party, Geom.line, Geom.point, Scale.discrete_color_manual("red", "blue") )
-plot(bipartisan_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, Geom.point, Geom.smooth(method=:lm), Scale.discrete_color_manual("red", "blue") )
+for state in groupby(bipartisan_data, :State)
+	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point, Scale.discrete_color_manual("red", "blue"))
+	draw(SVG(string("plots/bi_", state[:State][1], ".svg"), 8cm, 5cm), p)
+#	display(p)
+end
+
+# all states over time
+bipartisan_data_1860 = bipartisan_data[bipartisan_data[:Year] .>= 1860, :]
+bipartisan_diff = by( bipartisan_data_1860, [:Year, :State], 
+                      df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
+							       df[:Popular_Percent][df[:Party] .== "Democratic"] )
+
+p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State]) 
+           for state in groupby(bipartisan_diff, :State) ]..., Theme(key_position=:none))
+draw(SVG(string("plots/bi_all_states.svg"), 32cm, 9cm), p)
