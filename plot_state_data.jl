@@ -40,7 +40,6 @@ for state in groupby(state_data, :State)
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point)
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
 	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 27cm, 9cm), p)
-#	display(p)
 end
 
 # democrats and republicans
@@ -50,8 +49,8 @@ bipartisan_data = vcat(republican_data, democrat_data)
 
 for state in groupby(bipartisan_data, :State)
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point, Scale.discrete_color_manual("red", "blue"))
-	draw(SVG(string("plots/bi_", state[:State][1], ".svg"), 8cm, 5cm), p)
-#	display(p)
+	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
+	draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 27cm, 9cm), p)
 end
 
 # all states over time
