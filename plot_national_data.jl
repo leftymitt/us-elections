@@ -15,6 +15,7 @@ end
 #load data and tweak
 national_data = readtable("data/national_data.txt", separator='\t');
 national_data[:Popular_Vote] = fixdata(national_data[:Popular_Vote]);
+rename!(national_data, :PoliticalParty, :Party)
 
 # get popular vote percents by year
 national_data[:Popular_Total] = 
