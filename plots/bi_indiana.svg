@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="270mm" height="90mm" viewBox="0 0 270 90"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g class="plotroot xscalable yscalable" id="img-d2905f00-1">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-d2905f00-2">
+    <text x="132.72" y="78.39" text-anchor="middle" dy="0.6em">Year</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-d2905f00-3">
+    <text x="19.96" y="71.72" text-anchor="middle" dy="0.6em">1800</text>
+    <text x="65.06" y="71.72" text-anchor="middle" dy="0.6em">1850</text>
+    <text x="110.17" y="71.72" text-anchor="middle" dy="0.6em">1900</text>
+    <text x="155.27" y="71.72" text-anchor="middle" dy="0.6em">1950</text>
+    <text x="200.38" y="71.72" text-anchor="middle" dy="0.6em">2000</text>
+    <text x="245.48" y="71.72" text-anchor="middle" dy="0.6em">2050</text>
+  </g>
+  <g class="guide colorkey" id="img-d2905f00-4">
+    <g fill="#4C404B" font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="img-d2905f00-5">
+      <text x="251.29" y="37.86" dy="0.35em" id="img-d2905f00-6" class="color_Republican">Republican</text>
+      <text x="251.29" y="41.48" dy="0.35em" id="img-d2905f00-7" class="color_Democratic">Democratic</text>
+    </g>
+    <g stroke="#000000" stroke-opacity="0.000" id="img-d2905f00-8">
+      <rect x="248.48" y="36.95" width="1.81" height="1.81" id="img-d2905f00-9" class="color_Republican" fill="#FF0000"/>
+      <rect x="248.48" y="40.58" width="1.81" height="1.81" id="img-d2905f00-10" class="color_Democratic" fill="#0000FF"/>
+    </g>
+    <g fill="#362A35" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="img-d2905f00-11">
+      <text x="248.48" y="34.04" id="img-d2905f00-12">Party</text>
+    </g>
+  </g>
+<g clip-path="url(#img-d2905f00-13)">
+  <g id="img-d2905f00-14">
+    <g pointer-events="visible" opacity="1" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-d2905f00-15">
+      <rect x="17.96" y="5" width="229.52" height="65.72" id="img-d2905f00-16"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-d2905f00-17">
+      <path fill="none" d="M17.96,68.72 L 247.48 68.72" id="img-d2905f00-18"/>
+      <path fill="none" d="M17.96,56.37 L 247.48 56.37" id="img-d2905f00-19"/>
+      <path fill="none" d="M17.96,44.03 L 247.48 44.03" id="img-d2905f00-20"/>
+      <path fill="none" d="M17.96,31.69 L 247.48 31.69" id="img-d2905f00-21"/>
+      <path fill="none" d="M17.96,19.34 L 247.48 19.34" id="img-d2905f00-22"/>
+      <path fill="none" d="M17.96,7 L 247.48 7" id="img-d2905f00-23"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-d2905f00-24">
+      <path fill="none" d="M19.96,5 L 19.96 70.72" id="img-d2905f00-25"/>
+      <path fill="none" d="M65.06,5 L 65.06 70.72" id="img-d2905f00-26"/>
+      <path fill="none" d="M110.17,5 L 110.17 70.72" id="img-d2905f00-27"/>
+      <path fill="none" d="M155.27,5 L 155.27 70.72" id="img-d2905f00-28"/>
+      <path fill="none" d="M200.38,5 L 200.38 70.72" id="img-d2905f00-29"/>
+      <path fill="none" d="M245.48,5 L 245.48 70.72" id="img-d2905f00-30"/>
+    </g>
+    <g class="plotpanel" id="img-d2905f00-31">
+      <g class="geometry" id="img-d2905f00-32">
+        <g stroke-width="0.3" id="img-d2905f00-33">
+          <use xlink:href="#img-d2905f00-34" x="74.08" y="30.34" id="img-d2905f00-35" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="77.69" y="27.25" id="img-d2905f00-36" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="81.3" y="29.97" id="img-d2905f00-37" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="84.91" y="27.98" id="img-d2905f00-38" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="88.52" y="34.9" id="img-d2905f00-39" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="92.13" y="32.52" id="img-d2905f00-40" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="95.73" y="33.97" id="img-d2905f00-41" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="99.34" y="32.86" id="img-d2905f00-42" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="102.95" y="36.41" id="img-d2905f00-43" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="106.56" y="30.68" id="img-d2905f00-44" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="110.17" y="30.94" id="img-d2905f00-45" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="113.78" y="26.77" id="img-d2905f00-46" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="117.38" y="33.67" id="img-d2905f00-47" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="120.99" y="64.87" id="img-d2905f00-48" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="124.6" y="34.85" id="img-d2905f00-49" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="128.21" y="25.34" id="img-d2905f00-50" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="131.82" y="25.2" id="img-d2905f00-51" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="135.43" y="19.73" id="img-d2905f00-52" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="139.03" y="40.4" id="img-d2905f00-53" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="142.64" y="41.7" id="img-d2905f00-54" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="146.25" y="31.13" id="img-d2905f00-55" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="149.86" y="28.74" id="img-d2905f00-56" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="153.47" y="32.21" id="img-d2905f00-57" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="157.08" y="21.67" id="img-d2905f00-58" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="160.68" y="19.47" id="img-d2905f00-59" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="164.29" y="25.48" id="img-d2905f00-60" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="167.9" y="39.63" id="img-d2905f00-61" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="171.51" y="31.33" id="img-d2905f00-62" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="175.12" y="11.8" id="img-d2905f00-63" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="178.73" y="27.58" id="img-d2905f00-64" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="182.33" y="24.27" id="img-d2905f00-65" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="185.94" y="17.28" id="img-d2905f00-66" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="189.55" y="19.54" id="img-d2905f00-67" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="193.16" y="40.44" id="img-d2905f00-68" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="196.77" y="35.22" id="img-d2905f00-69" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="200.38" y="23.48" id="img-d2905f00-70" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="203.98" y="19.41" id="img-d2905f00-71" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="207.59" y="33.15" id="img-d2905f00-72" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="211.2" y="26.7" id="img-d2905f00-73" stroke="#FFFFFF" class="color_Republican" fill="#FF0000"/>
+          <use xlink:href="#img-d2905f00-34" x="45.22" y="23.51" id="img-d2905f00-74" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="48.83" y="10.58" id="img-d2905f00-75" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="52.43" y="39.05" id="img-d2905f00-76" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="56.04" y="38.92" id="img-d2905f00-77" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="59.65" y="31.59" id="img-d2905f00-78" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="63.26" y="33" id="img-d2905f00-79" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="66.87" y="29.16" id="img-d2905f00-80" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="70.48" y="31.19" id="img-d2905f00-81" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="74.08" y="41.01" id="img-d2905f00-82" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="77.69" y="36.13" id="img-d2905f00-83" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="81.3" y="33.41" id="img-d2905f00-84" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="84.91" y="35.89" id="img-d2905f00-85" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="88.52" y="33.35" id="img-d2905f00-86" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="92.13" y="34.26" id="img-d2905f00-87" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="95.73" y="32.35" id="img-d2905f00-88" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="99.34" y="33.4" id="img-d2905f00-89" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="102.95" y="34.82" id="img-d2905f00-90" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="106.56" y="34.2" id="img-d2905f00-91" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="110.17" y="35.86" id="img-d2905f00-92" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="113.78" y="43.76" id="img-d2905f00-93" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="117.38" y="35.5" id="img-d2905f00-94" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="120.99" y="40.24" id="img-d2905f00-95" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="124.6" y="36.04" id="img-d2905f00-96" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="128.21" y="43.43" id="img-d2905f00-97" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="131.82" y="45.65" id="img-d2905f00-98" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="135.43" y="44.54" id="img-d2905f00-99" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="139.03" y="25.93" id="img-d2905f00-100" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="142.64" y="23.5" id="img-d2905f00-101" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="146.25" y="32.88" id="img-d2905f00-102" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="149.86" y="35.72" id="img-d2905f00-103" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="153.47" y="33.2" id="img-d2905f00-104" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="157.08" y="42.8" id="img-d2905f00-105" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="160.68" y="44.4" id="img-d2905f00-106" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="164.29" y="38.35" id="img-d2905f00-107" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="167.9" y="24.31" id="img-d2905f00-108" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="171.51" y="46.52" id="img-d2905f00-109" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="175.12" y="52.25" id="img-d2905f00-110" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="178.73" y="36.99" id="img-d2905f00-111" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="182.33" y="46.93" id="img-d2905f00-112" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="185.94" y="46.89" id="img-d2905f00-113" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="189.55" y="44.42" id="img-d2905f00-114" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="193.16" y="47.99" id="img-d2905f00-115" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="196.77" y="42.12" id="img-d2905f00-116" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="200.38" y="42.78" id="img-d2905f00-117" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="203.98" y="44.94" id="img-d2905f00-118" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="207.59" y="31.88" id="img-d2905f00-119" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+          <use xlink:href="#img-d2905f00-34" x="211.2" y="39.29" id="img-d2905f00-120" stroke="#FFFFFF" class="color_Democratic" fill="#0000FF"/>
+        </g>
+      </g>
+      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke-dasharray="none" id="img-d2905f00-121">
+        <path fill="none" d="M45.22,23.51 L 48.83 10.58 52.43 39.05 56.04 38.92 59.65 31.59 63.26 33 66.87 29.16 70.48 31.19 74.08 41.01 77.69 36.13 81.3 33.41 84.91 35.89 88.52 33.35 92.13 34.26 95.73 32.35 99.34 33.4 102.95 34.82 106.56 34.2 110.17 35.86 113.78 43.76 117.38 35.5 120.99 40.24 124.6 36.04 128.21 43.43 131.82 45.65 135.43 44.54 139.03 25.93 142.64 23.5 146.25 32.88 149.86 35.72 153.47 33.2 157.08 42.8 160.68 44.4 164.29 38.35 167.9 24.31 171.51 46.52 175.12 52.25 178.73 36.99 182.33 46.93 185.94 46.89 189.55 44.42 193.16 47.99 196.77 42.12 200.38 42.78 203.98 44.94 207.59 31.88 211.2 39.29" id="img-d2905f00-122" stroke="#0000FF" class="geometry color_Democratic"/>
+        <path fill="none" d="M74.08,30.34 L 77.69 27.25 81.3 29.97 84.91 27.98 88.52 34.9 92.13 32.52 95.73 33.97 99.34 32.86 102.95 36.41 106.56 30.68 110.17 30.94 113.78 26.77 117.38 33.67 120.99 64.87 124.6 34.85 128.21 25.34 131.82 25.2 135.43 19.73 139.03 40.4 142.64 41.7 146.25 31.13 149.86 28.74 153.47 32.21 157.08 21.67 160.68 19.47 164.29 25.48 167.9 39.63 171.51 31.33 175.12 11.8 178.73 27.58 182.33 24.27 185.94 17.28 189.55 19.54 193.16 40.44 196.77 35.22 200.38 23.48 203.98 19.41 207.59 33.15 211.2 26.7" id="img-d2905f00-123" stroke="#FF0000" class="geometry color_Republican"/>
+      </g>
+    </g>
+  </g>
+</g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#6C606B" id="img-d2905f00-124">
+    <text x="16.96" y="68.72" text-anchor="end" dy="0.35em" id="img-d2905f00-125">20</text>
+    <text x="16.96" y="56.37" text-anchor="end" dy="0.35em" id="img-d2905f00-126">30</text>
+    <text x="16.96" y="44.03" text-anchor="end" dy="0.35em" id="img-d2905f00-127">40</text>
+    <text x="16.96" y="31.69" text-anchor="end" dy="0.35em" id="img-d2905f00-128">50</text>
+    <text x="16.96" y="19.34" text-anchor="end" dy="0.35em" id="img-d2905f00-129">60</text>
+    <text x="16.96" y="7" text-anchor="end" dy="0.35em" id="img-d2905f00-130">70</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#564A55" stroke="#000000" stroke-opacity="0.000" id="img-d2905f00-131">
+    <text x="8.81" y="35.86" text-anchor="middle" dy="0.35em" transform="rotate(-90, 8.81, 37.86)" id="img-d2905f00-132">Popular_Percent</text>
+  </g>
+</g>
+<defs>
+  <clipPath id="img-d2905f00-13">
+  <path d="M17.96,5 L 247.48 5 247.48 70.72 17.96 70.72" />
+</clipPath>
+  <g id="img-d2905f00-34">
+    <circle cx="0" cy="0" r="0.9" id="img-d2905f00-133"/>
+  </g>
+</defs>
+</svg>
