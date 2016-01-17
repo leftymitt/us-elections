@@ -43,10 +43,12 @@ for state in groupby(state_data, :State)
 	lastyear = Int(maximum(state[:Year]))+4
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
 	         Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
+            Theme(major_label_font_size=20px, key_title_font_size=20px, 
+                  minor_label_font_size=16px, key_label_font_size=16px))
 	#display(p)
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
-	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 27cm, 9cm), p)
+	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 27cm, 12cm), p)
 end
 
 ################################################################################
@@ -62,9 +64,11 @@ for state in groupby(bipartisan_data, :State)
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
 	         Geom.point, Scale.discrete_color_manual("red", "blue"),
 	         Guide.ylabel("Popular Vote (%)"), Guide.xlabel("Year"), 
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear),
+            Theme(major_label_font_size=20px, key_title_font_size=20px, 
+                  minor_label_font_size=16px, key_label_font_size=16px))
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
-	draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 27cm, 9cm), p)
+	draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 27cm, 12cm), p)
 end
 
 ################################################################################
@@ -78,5 +82,7 @@ bipartisan_diff = by( bipartisan_data_1860, [:Year, :State],
 p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State]) 
            for state in groupby(bipartisan_diff, :State) ]..., 
          Theme(key_position=:none), Coord.Cartesian(xmin=1856, xmax=2016), 
-         Guide.ylabel("Popular Vote Difference (%)"), Guide.xlabel("Year")) 
-draw(SVG(string("plots/bi_all_states.svg"), 32cm, 9cm), p)
+         Guide.ylabel("Popular Vote Difference (%)"), Guide.xlabel("Year"), 
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 12cm), p)

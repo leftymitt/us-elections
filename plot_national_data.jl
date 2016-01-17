@@ -38,16 +38,22 @@ national_data[:Electoral_Percent] =
 ################################################################################
 p = plot(national_data, x=:Year, y=:Popular_Percent, color=:Party, 
          Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
-         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100))
-draw(SVG("plots/all_popular_national.svg", 27cm, 9cm), p)
+         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/all_popular_national.svg", 27cm, 12cm), p)
 p = plot(national_data, x=:Year, y=:Electoral_Percent, color=:Party, 
          Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
-         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100))
-draw(SVG("plots/all_electoral_national.svg", 27cm, 9cm), p)
+         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/all_electoral_national.svg", 27cm, 12cm), p)
 p = plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, 
          Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
-         Geom.point, Coord.Cartesian(ymin=0,ymax=100))
-draw(SVG("plots/all_popular_v_electoral_national.svg", 27cm, 9cm), p)
+         Geom.point, Coord.Cartesian(ymin=0,ymax=100),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/all_popular_v_electoral_national.svg", 27cm, 12cm), p)
 
 ################################################################################
 # democrats and republicans.
@@ -65,17 +71,23 @@ p = plot(bipartisan_data, x=:Year, y=:Popular_Percent,
          color=:Party, Geom.line, Geom.point, 
          Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
          Scale.discrete_color_manual("red", "blue"),
-         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
-draw(SVG("plots/bi_popular_national.svg", 27cm, 9cm), p)
+         Coord.Cartesian(xmin=firstyear, xmax=lastyear),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/bi_popular_national.svg", 27cm, 12cm), p)
 p = plot(bipartisan_data, x=:Year, y=:Electoral_Percent, 
          color=:Party, Geom.line, Geom.point, 
          Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
          Scale.discrete_color_manual("red", "blue"),
-         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
-draw(SVG("plots/bi_electoral_national.svg", 27cm, 9cm), p)
+         Coord.Cartesian(xmin=firstyear, xmax=lastyear),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/bi_electoral_national.svg", 27cm, 12cm), p)
 p = plot(bipartisan_data, x=:Popular_Percent, y=:Electoral_Percent, 
          color=:Party, Geom.point, Geom.smooth(method=:lm), 
          Guide.xlabel("Popular Vote (%)"), Guide.ylabel("Electoral Vote (%)"), 
          Scale.discrete_color_manual("red", "blue"),
-         Coord.Cartesian(ymin=0))
-draw(SVG("plots/bi_popular_v_electoral_national.svg", 27cm, 9cm), p)
+         Coord.Cartesian(ymin=0),
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=16px, key_label_font_size=16px))
+draw(SVG("plots/bi_popular_v_electoral_national.svg", 27cm, 12cm), p)
