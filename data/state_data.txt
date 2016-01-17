@@ -114,6 +114,11 @@ Vermont	John Quincy Adams	7	0	1824.0	Democratic-Republican
 Vermont	Henry Clay	0	0	1824.0	Democratic-Republican
 Vermont	William Crawford	0	0	1824.0	Democratic-Republican
 Vermont	Others	0	0	1824.0	-
+Virginia	Andrew Jackson	0	2,975	1824.0	Democratic-Republican
+Virginia	John Quincy Adams	0	3,419	1824.0	Democratic-Republican
+Virginia	Henry Clay	24	419	1824.0	Democratic-Republican
+Virginia	William Crawford	0	8,558	1824.0	Democratic-Republican
+Virginia	Others	0	0	1824.0	-
 Alabama	Andrew Jackson	5	16,736	1828.0	Democratic
 Alabama	John Quincy Adams	0	1,878	1828.0	Nat'l Republican
 Alabama	Others	0	4	1828.0	-
@@ -183,6 +188,9 @@ Tennessee	Others	0	0	1828.0	-
 Vermont	Andrew Jackson	0	8,350	1828.0	Democratic
 Vermont	John Quincy Adams	7	25,363	1828.0	Nat'l Republican
 Vermont	Others	0	0	1828.0	-
+Virginia	Andrew Jackson	24	26,854	1828.0	Democratic
+Virginia	John Quincy Adams	0	12,070	1828.0	Nat'l Republican
+Virginia	Others	0	0	1828.0	-
 Alabama	Andrew Jackson	7	14,286	1832.0	Democratic
 Alabama	Henry Clay	0	5	1832.0	Nat'l Republican
 Alabama	William Wirt	0	0	1832.0	Anti-Masonic
@@ -271,6 +279,10 @@ Vermont	Andrew Jackson	0	7,870	1832.0	Democratic
 Vermont	Henry Clay	0	11,152	1832.0	Nat'l Republican
 Vermont	William Wirt	0	13,106	1832.0	Anti-Masonic
 Vermont	Others	7	0	1832.0	-
+Virginia	Andrew Jackson	23	34,243	1832.0	Democratic
+Virginia	Henry Clay	0	11,436	1832.0	Nat'l Republican
+Virginia	William Wirt	0	3	1832.0	Anti-Masonic
+Virginia	Others	0	0	1832.0	-
 Alabama	Martin Van Buren	7	20,638	1836.0	Democratic
 Alabama	William H. Harrison	0	0	1836.0	Whig
 Alabama	Hugh White	0	16,658	1836.0	Whig
@@ -391,6 +403,11 @@ Vermont	William H. Harrison	7	20,994	1836.0	Whig
 Vermont	Hugh White	0	0	1836.0	Whig
 Vermont	Daniel Webster	0	0	1836.0	Whig
 Vermont	Other (+)	0	0	1836.0	 - 
+Virginia	Martin Van Buren	23	30,556	1836.0	Democratic
+Virginia	William H. Harrison	0	0	1836.0	Whig
+Virginia	Hugh White	0	23,384	1836.0	Whig
+Virginia	Daniel Webster	0	0	1836.0	Whig
+Virginia	Other (+)	0	5	1836.0	 - 
 Alabama	William H. Harrison	0	28,515	1840.0	Whig
 Alabama	Martin Van Buren	7	33,996	1840.0	Democratic
 Alabama	Other (+)	0	0	1840.0	 - 
@@ -463,6 +480,9 @@ Tennessee	Other (+)	0	0	1840.0	 -
 Vermont	William H. Harrison	7	32,445	1840.0	Whig
 Vermont	Martin Van Buren	0	18,009	1840.0	Democratic
 Vermont	Other (+)	0	319	1840.0	 - 
+Virginia	William H. Harrison	0	42,637	1840.0	Whig
+Virginia	Martin Van Buren	23	43,757	1840.0	Democratic
+Virginia	Other (+)	0	0	1840.0	 - 
 Alabama	James K. Polk	9	37,401	1844.0	Democratic
 Alabama	Henry Clay	0	26,002	1844.0	Whig
 Alabama	James G. Birney	0	0	1844.0	Liberty
@@ -559,6 +579,10 @@ Vermont	James K. Polk	0	18,049	1844.0	Democratic
 Vermont	Henry Clay	6	26,780	1844.0	Whig
 Vermont	James G. Birney	0	3,970	1844.0	Liberty
 Vermont	Other (+)	0	30	1844.0	 - 
+Virginia	James K. Polk	17	50,679	1844.0	Democratic
+Virginia	Henry Clay	0	44,860	1844.0	Whig
+Virginia	James G. Birney	0	0	1844.0	Liberty
+Virginia	Other (+)	0	0	1844.0	 - 
 Alabama	Zachary Taylor  	0	30,482	1848.0	Whig
 Alabama	Lewis Cass  	9	31,173	1848.0	Democratic
 Alabama	Martin Van Buren 	0	0	1848.0	Free Soil
@@ -671,6 +695,10 @@ Virginia	Zachary Taylor  	0	45,265	1848.0	Whig
 Virginia	Lewis Cass  	17	46,739	1848.0	Democratic
 Virginia	Martin Van Buren 	0	0	1848.0	Free Soil
 Virginia	Other (+)	0	0	1848.0	 - 
+Wisconsin	Zachary Taylor  	0	13,747	1848.0	Whig
+Wisconsin	Lewis Cass  	4	15,001	1848.0	Democratic
+Wisconsin	Martin Van Buren 	0	10,418	1848.0	Free Soil
+Wisconsin	Other (+)	0	0	1848.0	 - 
 Alabama	Franklin Pierce  	9	26,881	1852.0	Democratic
 Alabama	Winfield Scott  	0	15,061	1852.0	Whig
 Alabama	John Hale  	0	0	1852.0	Free Soil
@@ -787,6 +815,10 @@ Virginia	Franklin Pierce  	15	73,872	1852.0	Democratic
 Virginia	Winfield Scott  	0	58,732	1852.0	Whig
 Virginia	John Hale  	0	0	1852.0	Free Soil
 Virginia	Other (+)	0	0	1852.0	 - 
+Wisconsin	Franklin Pierce  	5	33,658	1852.0	Democratic
+Wisconsin	Winfield Scott  	0	22,210	1852.0	Whig
+Wisconsin	John Hale  	0	8,814	1852.0	Free Soil
+Wisconsin	Other (+)	0	0	1852.0	 - 
 Alabama	James Buchanan  	9	46,739	1856.0	Democratic
 Alabama	Fremont	0	0	1856.0	-
 Alabama	Millard Fillmore  	0	28,552	1856.0	Whig-American
@@ -903,6 +935,10 @@ Virginia	James Buchanan  	15	90,083	1856.0	Democratic
 Virginia	Fremont	0	0	1856.0	-
 Virginia	Millard Fillmore  	0	60,150	1856.0	Whig-American
 Virginia	Other (+)	0	0	1856.0	 - 
+Wisconsin	James Buchanan  	0	52,843	1856.0	Democratic
+Wisconsin	Fremont	5	66,090	1856.0	-
+Wisconsin	Millard Fillmore  	0	579	1856.0	Whig-American
+Wisconsin	Other (+)	0	0	1856.0	 - 
 Alabama	Abraham Lincoln  	0	0	1860.0	Republican
 Alabama	Stephen Douglas  	9	13,618	1860.0	Democratic
 Alabama	Brecki.	0	48,669	1860.0	-
@@ -1058,6 +1094,11 @@ Virginia	Stephen Douglas  	0	16,198	1860.0	Democratic
 Virginia	Brecki.	15	74,325	1860.0	-
 Virginia	John Bell  	0	74,481	1860.0	Constitutional Union
 Virginia	Other (+)	0	0	1860.0	 - 
+Wisconsin	Abraham Lincoln  	5	86,113	1860.0	Republican
+Wisconsin	Stephen Douglas  	0	65,021	1860.0	Democratic
+Wisconsin	Brecki.	0	888	1860.0	-
+Wisconsin	John Bell  	0	161	1860.0	Constitutional Union
+Wisconsin	Other (+)	0	0	1860.0	 - 
 California	Abraham Lincoln	5	62,053	1864.0	Republican
 California	George McClellan 	0	43,837	1864.0	Democratic
 California	Other (+)	0	0	1864.0	 - 
@@ -1130,6 +1171,9 @@ Vermont	Other (+)	0	0	1864.0	 -
 West Virginia	Abraham Lincoln	5	23,799	1864.0	Republican
 West Virginia	George McClellan 	0	11,078	1864.0	Democratic
 West Virginia	Other (+)	0	0	1864.0	 - 
+Wisconsin	Abraham Lincoln	8	83,458	1864.0	Republican
+Wisconsin	George McClellan 	0	65,884	1864.0	Democratic
+Wisconsin	Other (+)	0	0	1864.0	 - 
 Alabama	Ulysses Grant  	8	76,667	1868.0	Republican
 Alabama	Horatio Seymour	0	72,921	1868.0	Democratic
 Alabama	Other (+)	0	6	1868.0	 - 
@@ -1226,6 +1270,9 @@ Vermont	Other (+)	0	0	1868.0	 -
 West Virginia	Ulysses Grant  	5	29,015	1868.0	Republican
 West Virginia	Horatio Seymour	0	20,306	1868.0	Democratic
 West Virginia	Other (+)	0	0	1868.0	 - 
+Wisconsin	Ulysses Grant  	8	108,900	1868.0	Republican
+Wisconsin	Horatio Seymour	0	84,703	1868.0	Democratic
+Wisconsin	Other (+)	0	0	1868.0	 - 
 Alabama	Ulysses Grant  	10	90,272	1872.0	Republican
 Alabama	Horace Greeley  	0	79,444	1872.0	Democratic
 Alabama	Other (+)	0	0	1872.0	 - 
@@ -1334,6 +1381,9 @@ Virginia	Other (+)	0	85	1872.0	 -
 West Virginia	Ulysses Grant  	5	32,320	1872.0	Republican
 West Virginia	Horace Greeley  	0	29,532	1872.0	Democratic
 West Virginia	Other (+)	0	615	1872.0	 - 
+Wisconsin	Ulysses Grant  	10	104,994	1872.0	Republican
+Wisconsin	Horace Greeley  	0	86,477	1872.0	Democratic
+Wisconsin	Other (+)	0	834	1872.0	 - 
 Alabama	Samuel Tilden	0	102,989	1876.0	Democratic
 Alabama	Rutherford Hayes	10	68,708	1876.0	Republican
 Alabama	Other (+)	0	2	1876.0	 - 
@@ -1442,6 +1492,9 @@ Virginia	Other (+)	0	0	1876.0	 -
 West Virginia	Samuel Tilden	0	56,546	1876.0	Democratic
 West Virginia	Rutherford Hayes	5	41,997	1876.0	Republican
 West Virginia	Other (+)	0	1,104	1876.0	 - 
+Wisconsin	Samuel Tilden	10	123,926	1876.0	Democratic
+Wisconsin	Rutherford Hayes	0	130,067	1876.0	Republican
+Wisconsin	Other (+)	0	3,184	1876.0	 - 
 Alabama	James Garfield	0	56,350	1880.0	Republican
 Alabama	Winfield Hancock	10	91,130	1880.0	Democratic
 Alabama	James Weaver	0	4,422	1880.0	Greenback
@@ -1590,6 +1643,10 @@ West Virginia	James Garfield	0	46,243	1880.0	Republican
 West Virginia	Winfield Hancock	5	57,390	1880.0	Democratic
 West Virginia	James Weaver	0	9,008	1880.0	Greenback
 West Virginia	Other (+)	0	0	1880.0	 - 
+Wisconsin	James Garfield	10	144,398	1880.0	Republican
+Wisconsin	Winfield Hancock	0	114,644	1880.0	Democratic
+Wisconsin	James Weaver	0	7,986	1880.0	Greenback
+Wisconsin	Other (+)	0	159	1880.0	 - 
 Alabama	Grover Cleveland	10	92,736	1884.0	Democratic
 Alabama	James Blaine	0	59,444	1884.0	Republican
 Alabama	Other (+)	0	1,444	1884.0	 - 
@@ -1701,6 +1758,9 @@ Virginia	Other (+)	0	130	1884.0	 -
 West Virginia	Grover Cleveland	6	67,311	1884.0	Democratic
 West Virginia	James Blaine	0	63,096	1884.0	Republican
 West Virginia	Other (+)	0	1,738	1884.0	 - 
+Wisconsin	Grover Cleveland	0	146,453	1884.0	Democratic
+Wisconsin	James Blaine	11	161,135	1884.0	Republican
+Wisconsin	Other (+)	0	12,247	1884.0	 - 
 Alabama	Grover Cleveland	0	117,314	1888.0	Democratic
 Alabama	Benjamin Harrison	10	57,177	1888.0	Republican
 Alabama	Clinton Fisk	0	594	1888.0	Prohibition
@@ -1849,6 +1909,10 @@ West Virginia	Grover Cleveland	0	78,677	1888.0	Democratic
 West Virginia	Benjamin Harrison	6	78,171	1888.0	Republican
 West Virginia	Clinton Fisk	0	1,084	1888.0	Prohibition
 West Virginia	Other (+)	0	1,508	1888.0	 - 
+Wisconsin	Grover Cleveland	11	155,232	1888.0	Democratic
+Wisconsin	Benjamin Harrison	0	176,553	1888.0	Republican
+Wisconsin	Clinton Fisk	0	14,277	1888.0	Prohibition
+Wisconsin	Other (+)	0	8,552	1888.0	 - 
 Alabama	Grover Cleveland	11	138,135	1892.0	Democratic
 Alabama	Benjamin Harrison	0	9,184	1892.0	Republican
 Alabama	James Weaver	0	84,984	1892.0	Populist
@@ -2064,6 +2128,11 @@ Wisconsin	Benjamin Harrison	0	171,101	1892.0	Republican
 Wisconsin	James Weaver	0	10,019	1892.0	Populist
 Wisconsin	John Bidwell	0	13,136	1892.0	Prohibition
 Wisconsin	Other (+)	0	0	1892.0	 - 
+Wyoming	Grover Cleveland	0	0	1892.0	Democratic
+Wyoming	Benjamin Harrison	3	8,454	1892.0	Republican
+Wyoming	James Weaver	0	7,722	1892.0	Populist
+Wyoming	John Bidwell	0	530	1892.0	Prohibition
+Wyoming	Other (+)	0	29	1892.0	 - 
 Alabama	William McKinley	0	55,673	1896.0	Republican
 Alabama	William Bryan	11	130,298	1896.0	Democratic
 Alabama	Other (+)	0	8,609	1896.0	 - 
@@ -2196,6 +2265,9 @@ West Virginia	Other (+)	0	1,898	1896.0	 -
 Wisconsin	William McKinley	12	268,135	1896.0	Republican
 Wisconsin	William Bryan	0	165,523	1896.0	Democratic
 Wisconsin	Other (+)	0	13,751	1896.0	 - 
+Wyoming	William McKinley	0	10,072	1896.0	Republican
+Wyoming	William Bryan	3	10,861	1896.0	Democratic
+Wyoming	Other (+)	0	159	1896.0	 - 
 Alabama	William McKinley	0	55,612	1900.0	Republican
 Alabama	William Bryan	11	97,129	1900.0	Democratic
 Alabama	Other (+)	0	6,951	1900.0	 - 
@@ -2328,6 +2400,9 @@ West Virginia	Other (+)	0	2,160	1900.0	 -
 Wisconsin	William McKinley	12	265,760	1900.0	Republican
 Wisconsin	William Bryan	0	159,163	1900.0	Democratic
 Wisconsin	Other (+)	0	17,578	1900.0	 - 
+Wyoming	William McKinley	3	14,482	1900.0	Republican
+Wyoming	William Bryan	0	10,164	1900.0	Democratic
+Wyoming	Other (+)	0	41	1900.0	 - 
 Alabama	Theodore Roosevelt	0	22,472	1904.0	Republican
 Alabama	Alton Parker	11	79,857	1904.0	Democratic
 Alabama	Eugene Debs	0	853	1904.0	Socialist
@@ -2504,6 +2579,10 @@ Wisconsin	Theodore Roosevelt	13	280,315	1904.0	Republican
 Wisconsin	Alton Parker	0	124,205	1904.0	Democratic
 Wisconsin	Eugene Debs	0	28,240	1904.0	Socialist
 Wisconsin	Other (+)	0	10,681	1904.0	 - 
+Wyoming	Theodore Roosevelt	3	20,489	1904.0	Republican
+Wyoming	Alton Parker	0	8,930	1904.0	Democratic
+Wyoming	Eugene Debs	0	1,072	1904.0	Socialist
+Wyoming	Other (+)	0	217	1904.0	 - 
 Alabama	William Taft	0	25,372	1908.0	Republican
 Alabama	William Bryan	11	74,374	1908.0	Democratic
 Alabama	Eugene Debs	0	1,450	1908.0	Socialist
@@ -2684,6 +2763,10 @@ Wisconsin	William Taft	13	247,747	1908.0	Republican
 Wisconsin	William Bryan	0	166,662	1908.0	Democratic
 Wisconsin	Eugene Debs	0	28,147	1908.0	Socialist
 Wisconsin	Other (+)	0	11,885	1908.0	 - 
+Wyoming	William Taft	3	20,846	1908.0	Republican
+Wyoming	William Bryan	0	14,918	1908.0	Democratic
+Wyoming	Eugene Debs	0	1,715	1908.0	Socialist
+Wyoming	Other (+)	0	130	1908.0	 - 
 Alabama	Woodrow Wilson	12	82,438	1912.0	Democratic
 Alabama	Theodore Roosevelt	0	22,680	1912.0	Progressive
 Alabama	William Taft	0	9,717	1912.0	Republican
@@ -2919,6 +3002,11 @@ Wisconsin	Theodore Roosevelt	0	62,448	1912.0	Progressive
 Wisconsin	William Taft	0	130,596	1912.0	Republican
 Wisconsin	Eugene Debs	0	33,476	1912.0	Socialist
 Wisconsin	Other (+)	0	9,225	1912.0	 - 
+Wyoming	Woodrow Wilson	3	15,310	1912.0	Democratic
+Wyoming	Theodore Roosevelt	0	9,232	1912.0	Progressive
+Wyoming	William Taft	0	14,560	1912.0	Republican
+Wyoming	Eugene Debs	0	2,760	1912.0	Socialist
+Wyoming	Other (+)	0	434	1912.0	 - 
 Alabama	Woodrow Wilson	12	99,409	1916.0	Democratic
 Alabama	Charles Hughes	0	28,662	1916.0	Republican
 Alabama	Allan Benson	0	1,916	1916.0	Socialist
@@ -3107,6 +3195,10 @@ Wisconsin	Woodrow Wilson	0	191,363	1916.0	Democratic
 Wisconsin	Charles Hughes	13	220,822	1916.0	Republican
 Wisconsin	Allan Benson	0	27,631	1916.0	Socialist
 Wisconsin	Other (+)	0	7,318	1916.0	 - 
+Wyoming	Woodrow Wilson	3	28,316	1916.0	Democratic
+Wyoming	Charles Hughes	0	21,698	1916.0	Republican
+Wyoming	Allan Benson	0	1,453	1916.0	Socialist
+Wyoming	Other (+)	0	373	1916.0	 - 
 Alabama	Warren Harding	0	96,589	1920.0	Republican
 Alabama	James Cox	12	160,560	1920.0	Democratic
 Alabama	Eugene Debs	0	2,402	1920.0	Socialist
@@ -3295,6 +3387,10 @@ Wisconsin	Warren Harding	13	498,576	1920.0	Republican
 Wisconsin	James Cox	0	113,422	1920.0	Democratic
 Wisconsin	Eugene Debs	0	80,635	1920.0	Socialist
 Wisconsin	Other (+)	0	8,647	1920.0	 - 
+Wyoming	Warren Harding	3	35,091	1920.0	Republican
+Wyoming	James Cox	0	17,429	1920.0	Democratic
+Wyoming	Eugene Debs	0	0	1920.0	Socialist
+Wyoming	Other (+)	0	2,180	1920.0	 - 
 Alabama	Calvin Coolidge	0	40,615	1924.0	Republican
 Alabama	John Davis	12	113,138	1924.0	Democratic
 Alabama	Robert LaFollette	0	8,040	1924.0	Progressive
@@ -3483,6 +3579,10 @@ Wisconsin	Calvin Coolidge	0	311,614	1924.0	Republican
 Wisconsin	John Davis	0	68,115	1924.0	Democratic
 Wisconsin	Robert LaFollette	13	453,678	1924.0	Progressive
 Wisconsin	Other (+)	0	7,419	1924.0	 - 
+Wyoming	Calvin Coolidge	3	41,858	1924.0	Republican
+Wyoming	John Davis	0	12,868	1924.0	Democratic
+Wyoming	Robert LaFollette	0	25,174	1924.0	Progressive
+Wyoming	Other (+)	0	0	1924.0	 - 
 Alabama	Herbert Hoover	0	120,725	1928.0	Republican
 Alabama	Alfred Smith	12	127,796	1928.0	Democratic
 Alabama	Other (+)	0	460	1928.0	 - 
@@ -3624,6 +3724,9 @@ West Virginia	Other (+)	0	3,417	1928.0	 -
 Wisconsin	Herbert Hoover	13	544,205	1928.0	Republican
 Wisconsin	Alfred Smith	0	450,259	1928.0	Democratic
 Wisconsin	Other (+)	0	22,367	1928.0	 - 
+Wyoming	Herbert Hoover	3	52,748	1928.0	Republican
+Wyoming	Alfred Smith	0	29,299	1928.0	Democratic
+Wyoming	Other (+)	0	788	1928.0	 - 
 Alabama	Franklin Roosevelt	11	207,910	1932.0	Democratic
 Alabama	Herbert Hoover	0	34,675	1932.0	Republican
 Alabama	Norman Thomas	0	2,030	1932.0	Socialist
@@ -3812,6 +3915,10 @@ Wisconsin	Franklin Roosevelt	12	707,410	1932.0	Democratic
 Wisconsin	Herbert Hoover	0	347,741	1932.0	Republican
 Wisconsin	Norman Thomas	0	53,379	1932.0	Socialist
 Wisconsin	Other (+)	0	6,278	1932.0	 - 
+Wyoming	Franklin Roosevelt	3	54,370	1932.0	Democratic
+Wyoming	Herbert Hoover	0	39,583	1932.0	Republican
+Wyoming	Norman Thomas	0	2,829	1932.0	Socialist
+Wyoming	Other (+)	0	180	1932.0	 - 
 Alabama	Franklin Roosevelt	11	238,196	1936.0	Democratic
 Alabama	Alfred Landon	0	35,358	1936.0	Republican
 Alabama	Other (+)	0	2,190	1936.0	 - 
@@ -3953,6 +4060,9 @@ West Virginia	Other (+)	0	2,005	1936.0	 -
 Wisconsin	Franklin Roosevelt	12	802,984	1936.0	Democratic
 Wisconsin	Alfred Landon	0	380,828	1936.0	Republican
 Wisconsin	Other (+)	0	74,748	1936.0	 - 
+Wyoming	Franklin Roosevelt	3	62,624	1936.0	Democratic
+Wyoming	Alfred Landon	0	38,739	1936.0	Republican
+Wyoming	Other (+)	0	2,019	1936.0	 - 
 Alabama	Franklin Roosevelt	11	250,726	1940.0	Democratic
 Alabama	Wendell Willkie	0	42,184	1940.0	Republican
 Alabama	Other (+)	0	1,309	1940.0	 - 
@@ -4094,6 +4204,9 @@ West Virginia	Other (+)	0	0	1940.0	 -
 Wisconsin	Franklin Roosevelt	12	704,821	1940.0	Democratic
 Wisconsin	Wendell Willkie	0	679,206	1940.0	Republican
 Wisconsin	Other (+)	0	21,495	1940.0	 - 
+Wyoming	Franklin Roosevelt	3	59,287	1940.0	Democratic
+Wyoming	Wendell Willkie	0	52,633	1940.0	Republican
+Wyoming	Other (+)	0	320	1940.0	 - 
 Alabama	Franklin Roosevelt	11	198,918	1944.0	Democratic
 Alabama	Thomas Dewey	0	44,540	1944.0	Republican
 Alabama	Other (+)	0	1,285	1944.0	 - 
@@ -4235,6 +4348,9 @@ West Virginia	Other (+)	0	0	1944.0	 -
 Wisconsin	Franklin Roosevelt	0	650,413	1944.0	Democratic
 Wisconsin	Thomas Dewey	12	674,532	1944.0	Republican
 Wisconsin	Other (+)	0	14,207	1944.0	 - 
+Wyoming	Franklin Roosevelt	0	49,419	1944.0	Democratic
+Wyoming	Thomas Dewey	3	51,921	1944.0	Republican
+Wyoming	Other (+)	0	0	1944.0	 - 
 Alabama	Harry Truman	0	0	1948.0	Democratic
 Alabama	Thomas Dewey	0	40,930	1948.0	Republican
 Alabama	J. Strom Thurmond	11	171,443	1948.0	State's Rights
@@ -4470,6 +4586,11 @@ Wisconsin	Thomas Dewey	0	590,959	1948.0	Republican
 Wisconsin	J. Strom Thurmond	0	0	1948.0	State's Rights
 Wisconsin	Henry Wallace	0	25,282	1948.0	Progressive
 Wisconsin	Other (+)	0	13,249	1948.0	 - 
+Wyoming	Harry Truman	3	52,354	1948.0	Democratic
+Wyoming	Thomas Dewey	0	47,947	1948.0	Republican
+Wyoming	J. Strom Thurmond	0	0	1948.0	State's Rights
+Wyoming	Henry Wallace	0	931	1948.0	Progressive
+Wyoming	Other (+)	0	193	1948.0	 - 
 Alabama	Dwight Eisenhower	0	149,231	1952.0	Republican
 Alabama	Adlai Stevenson	11	275,075	1952.0	Democratic
 Alabama	Other (+)	0	1,814	1952.0	 - 
@@ -4611,6 +4732,9 @@ West Virginia	Other (+)	0	0	1952.0	 -
 Wisconsin	Dwight Eisenhower	12	979,744	1952.0	Republican
 Wisconsin	Adlai Stevenson	0	622,175	1952.0	Democratic
 Wisconsin	Other (+)	0	5,451	1952.0	 - 
+Wyoming	Dwight Eisenhower	3	81,047	1952.0	Republican
+Wyoming	Adlai Stevenson	0	47,934	1952.0	Democratic
+Wyoming	Other (+)	0	270	1952.0	 - 
 Alabama	Dwight Eisenhower	0	195,694	1956.0	Republican
 Alabama	Adlai Stevenson	10	280,844	1956.0	Democratic
 Alabama	Other (+)	0	20,333	1956.0	 - 
@@ -4752,6 +4876,9 @@ West Virginia	Other (+)	0	0	1956.0	 -
 Wisconsin	Dwight Eisenhower	12	954,844	1956.0	Republican
 Wisconsin	Adlai Stevenson	0	586,768	1956.0	Democratic
 Wisconsin	Other (+)	0	8,946	1956.0	 - 
+Wyoming	Dwight Eisenhower	3	74,573	1956.0	Republican
+Wyoming	Adlai Stevenson	0	49,554	1956.0	Democratic
+Wyoming	Other (+)	0	0	1956.0	 - 
 Alabama	John Kennedy	5	318,303	1960.0	Democratic
 Alabama	Richard Nixon	0	237,981	1960.0	Republican
 Alabama	Other (+)	6	8,189	1960.0	 - 
@@ -4899,6 +5026,9 @@ West Virginia	Other (+)	0	0	1960.0	 -
 Wisconsin	John Kennedy	0	830,805	1960.0	Democratic
 Wisconsin	Richard Nixon	12	895,175	1960.0	Republican
 Wisconsin	Other (+)	0	3,102	1960.0	 - 
+Wyoming	John Kennedy	0	63,331	1960.0	Democratic
+Wyoming	Richard Nixon	3	77,451	1960.0	Republican
+Wyoming	Other (+)	0	0	1960.0	 - 
 Alabama	Lyndon Johnson	0	0	1964.0	Democratic
 Alabama	Barry Goldwater	10	479,085	1964.0	Republican
 Alabama	Other (+)	0	210,732	1964.0	 - 
@@ -5049,6 +5179,9 @@ West Virginia	Other (+)	0	0	1964.0	 -
 Wisconsin	Lyndon Johnson	12	1,050,424	1964.0	Democratic
 Wisconsin	Barry Goldwater	0	638,495	1964.0	Republican
 Wisconsin	Other (+)	0	2,896	1964.0	 - 
+Wyoming	Lyndon Johnson	3	80,718	1964.0	Democratic
+Wyoming	Barry Goldwater	0	61,998	1964.0	Republican
+Wyoming	Other (+)	0	0	1964.0	 - 
 Alabama	Richard Nixon	0	146,923	1968.0	Republican
 Alabama	Hubert Humphrey	0	196,579	1968.0	Democratic
 Alabama	George Wallace	10	691,425	1968.0	American Ind.
@@ -5249,6 +5382,10 @@ Wisconsin	Richard Nixon	12	809,997	1968.0	Republican
 Wisconsin	Hubert Humphrey	0	748,804	1968.0	Democratic
 Wisconsin	George Wallace	0	127,835	1968.0	American Ind.
 Wisconsin	Other (+)	0	4,902	1968.0	 - 
+Wyoming	Richard Nixon	3	70,927	1968.0	Republican
+Wyoming	Hubert Humphrey	0	45,173	1968.0	Democratic
+Wyoming	George Wallace	0	11,105	1968.0	American Ind.
+Wyoming	Other (+)	0	0	1968.0	 - 
 Alabama	Richard Nixon	9	728,701	1972.0	Republican
 Alabama	George McGovern	0	256,923	1972.0	Democratic
 Alabama	Other (+)	0	20,469	1972.0	 - 
@@ -5399,6 +5536,9 @@ West Virginia	Other (+)	0	0	1972.0	 -
 Wisconsin	Richard Nixon	11	989,430	1972.0	Republican
 Wisconsin	George McGovern	0	810,174	1972.0	Democratic
 Wisconsin	Other (+)	0	53,286	1972.0	 - 
+Wyoming	Richard Nixon	3	100,464	1972.0	Republican
+Wyoming	George McGovern	0	44,358	1972.0	Democratic
+Wyoming	Other (+)	0	748	1972.0	 - 
 Alabama	James Carter	9	659,170	1976.0	Democratic
 Alabama	Gerald Ford	0	504,070	1976.0	Republican
 Alabama	Other (+)	0	19,610	1976.0	 - 
@@ -5549,6 +5689,9 @@ West Virginia	Other (+)	0	0	1976.0	 -
 Wisconsin	James Carter	11	1,040,232	1976.0	Democratic
 Wisconsin	Gerald Ford	0	1,004,987	1976.0	Republican
 Wisconsin	Other (+)	0	56,117	1976.0	 - 
+Wyoming	James Carter	0	62,239	1976.0	Democratic
+Wyoming	Gerald Ford	3	92,717	1976.0	Republican
+Wyoming	Other (+)	0	1,387	1976.0	 - 
 Alabama	Ronald Reagan	9	654,192	1980.0	Republican
 Alabama	James Carter	0	636,730	1980.0	Democratic
 Alabama	John Anderson	0	16,481	1980.0	Independent
@@ -5749,6 +5892,10 @@ Wisconsin	Ronald Reagan	11	1,088,845	1980.0	Republican
 Wisconsin	James Carter	0	981,584	1980.0	Democratic
 Wisconsin	John Anderson	0	160,657	1980.0	Independent
 Wisconsin	Other (+)	0	42,135	1980.0	 - 
+Wyoming	Ronald Reagan	3	110,700	1980.0	Republican
+Wyoming	James Carter	0	49,427	1980.0	Democratic
+Wyoming	John Anderson	0	12,072	1980.0	Independent
+Wyoming	Other (+)	0	4,514	1980.0	 - 
 Alabama	Ronald Reagan	9	872,849	1984.0	Republican
 Alabama	Walter Mondale	0	551,899	1984.0	Democratic
 Alabama	Other (+)	0	16,965	1984.0	 - 
@@ -5899,6 +6046,9 @@ West Virginia	Other (+)	0	2,134	1984.0	 -
 Wisconsin	Ronald Reagan	11	1,198,800	1984.0	Republican
 Wisconsin	Walter Mondale	0	995,847	1984.0	Democratic
 Wisconsin	Other (+)	0	17,369	1984.0	 - 
+Wyoming	Ronald Reagan	3	133,241	1984.0	Republican
+Wyoming	Walter Mondale	0	53,370	1984.0	Democratic
+Wyoming	Other (+)	0	2,357	1984.0	 - 
 Alabama	George Bush	9	815,576	1988.0	Republican
 Alabama	Michael Dukakis	0	549,506	1988.0	Democratic
 Alabama	Other (+)	0	13,394	1988.0	 - 
@@ -6049,6 +6199,9 @@ West Virginia	Other (+)	0	2,230	1988.0	 -
 Wisconsin	George Bush	0	1,047,499	1988.0	Republican
 Wisconsin	Michael Dukakis	11	1,126,794	1988.0	Democratic
 Wisconsin	Other (+)	0	17,315	1988.0	 - 
+Wyoming	George Bush	3	106,867	1988.0	Republican
+Wyoming	Michael Dukakis	0	67,113	1988.0	Democratic
+Wyoming	Other (+)	0	2,571	1988.0	 - 
 Alabama	William Clinton	0	690,080	1992.0	Democratic
 Alabama	George Bush	9	804,283	1992.0	Republican
 Alabama	H. Ross Perot	0	183,109	1992.0	Independent
@@ -6249,6 +6402,10 @@ Wisconsin	William Clinton	11	1,041,066	1992.0	Democratic
 Wisconsin	George Bush	0	930,855	1992.0	Republican
 Wisconsin	H. Ross Perot	0	544,479	1992.0	Independent
 Wisconsin	Other (+)	0	14,714	1992.0	 - 
+Wyoming	William Clinton	0	68,160	1992.0	Democratic
+Wyoming	George Bush	3	79,347	1992.0	Republican
+Wyoming	H. Ross Perot	0	51,263	1992.0	Independent
+Wyoming	Other (+)	0	1,855	1992.0	 - 
 Alabama	William Clinton	0	662,165	1996.0	Democratic
 Alabama	Robert Dole	9	769,044	1996.0	Republican
 Alabama	H. Ross Perot	0	92,149	1996.0	Reform
@@ -6449,6 +6606,10 @@ Wisconsin	William Clinton	11	1,071,971	1996.0	Democratic
 Wisconsin	Robert Dole	0	845,029	1996.0	Republican
 Wisconsin	H. Ross Perot	0	227,339	1996.0	Reform
 Wisconsin	Other (+)	0	51,830	1996.0	 - 
+Wyoming	William Clinton	0	77,934	1996.0	Democratic
+Wyoming	Robert Dole	3	105,388	1996.0	Republican
+Wyoming	H. Ross Perot	0	25,928	1996.0	Reform
+Wyoming	Other (+)	0	2,321	1996.0	 - 
 Alabama	Albert Gore Jr.	9	695,602	2000.0	Democratic
 Alabama	George W. Bush	0	944,409	2000.0	Republican
 Alabama	Ralph Nader	0	18,349	2000.0	Green
@@ -6649,6 +6810,10 @@ Wisconsin	Albert Gore Jr.	0	1,242,987	2000.0	Democratic
 Wisconsin	George W. Bush	11	1,237,279	2000.0	Republican
 Wisconsin	Ralph Nader	0	94,070	2000.0	Green
 Wisconsin	Other (+)	0	24,271	2000.0	 - 
+Wyoming	Albert Gore Jr.	3	60,481	2000.0	Democratic
+Wyoming	George W. Bush	0	147,947	2000.0	Republican
+Wyoming	Ralph Nader	0	4,625	2000.0	Green
+Wyoming	Other (+)	0	5,298	2000.0	 - 
 Alabama	George W. Bush	9	1,176,394	2004.0	Republican
 Alabama	John Kerry	0	693,933	2004.0	Democratic
 Alabama	Other (+)	0	13,122	2004.0	 - 
@@ -6799,6 +6964,9 @@ West Virginia	Other (+)	0	5,568	2004.0	 -
 Wisconsin	George W. Bush	0	1,478,120	2004.0	Republican
 Wisconsin	John Kerry	10	1,489,504	2004.0	Democratic
 Wisconsin	Other (+)	0	29,383	2004.0	 - 
+Wyoming	George W. Bush	3	167,629	2004.0	Republican
+Wyoming	John Kerry	0	70,776	2004.0	Democratic
+Wyoming	Other (+)	0	5,023	2004.0	 - 
 Alabama	Barack H. Obama	0	813,479	2008.0	Democratic
 Alabama	John S. McCain, III	9	1,266,546	2008.0	Republican
 Alabama	Other (+)	0	19,794	2008.0	 - 
@@ -6949,6 +7117,9 @@ West Virginia	Other (+)	0	13,800	2008.0	 -
 Wisconsin	Barack H. Obama	10	1,677,211	2008.0	Democratic
 Wisconsin	John S. McCain, III	0	1,262,393	2008.0	Republican
 Wisconsin	Other (+)	0	43,813	2008.0	 - 
+Wyoming	Barack H. Obama	0	82,868	2008.0	Democratic
+Wyoming	John S. McCain, III	3	164,958	2008.0	Republican
+Wyoming	Other (+)	0	6,832	2008.0	 - 
 Alabama	Barack H. Obama	0	795,696	2012.0	Democratic
 Alabama	Willard Mitt Romney	9	1,255,925	2012.0	Republican
 Alabama	Other (+)	0	22,717	2012.0	 - 
@@ -7099,3 +7270,6 @@ West Virginia	Other (+)	0	16,195	2012.0	 -
 Wisconsin	Barack H. Obama	10	1,620,985	2012.0	Democratic
 Wisconsin	Willard Mitt Romney	0	1,407,966	2012.0	Republican
 Wisconsin	Other (+)	0	39,483	2012.0	 - 
+Wyoming	Barack H. Obama	0	69,286	2012.0	Democratic
+Wyoming	Willard Mitt Romney	3	170,962	2012.0	Republican
+Wyoming	Other (+)	0	8,813	2012.0	 - 
