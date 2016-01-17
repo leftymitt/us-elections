@@ -27,7 +27,7 @@ def get_state_data(data, year):
     num_candidates = len(header[header_midpoint:]) 
     candidates = header[header_midpoint:]
     num_ev = len(header[1:header_midpoint-1])
-    for row in range(0, len(data[1].find_all("tr"))-1):
+    for row in range(0, len(data[1].find_all("tr"))):
         row = [ td.get_text().strip('\xa0') for td in data[1].find_all("tr")[row].find_all("td") ][1:]
         for idx, candidate in enumerate(candidates):
             if idx < num_ev:
