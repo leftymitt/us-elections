@@ -37,13 +37,16 @@ national_data[:Electoral_Percent] =
 # general plots.
 ################################################################################
 p = plot(national_data, x=:Year, y=:Popular_Percent, color=:Party, 
-         Geom.line, Geom.point)
+         Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
+         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100))
 draw(SVG("plots/all_popular_national.svg", 27cm, 9cm), p)
 p = plot(national_data, x=:Year, y=:Electoral_Percent, color=:Party, 
-         Geom.line, Geom.point)
+         Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
+         Geom.line, Geom.point, Coord.Cartesian(ymin=0,ymax=100))
 draw(SVG("plots/all_electoral_national.svg", 27cm, 9cm), p)
 p = plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, 
-         Geom.point)
+         Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
+         Geom.point, Coord.Cartesian(ymin=0,ymax=100))
 draw(SVG("plots/all_popular_v_electoral_national.svg", 27cm, 9cm), p)
 
 ################################################################################
@@ -52,16 +55,27 @@ draw(SVG("plots/all_popular_v_electoral_national.svg", 27cm, 9cm), p)
 republican_data = national_data[national_data[:Party] .== "Republican", :]
 democrat_data = national_data[national_data[:Party] .== "Democratic", :]
 bipartisan_data = vcat(republican_data, democrat_data)
+bipartisan_data = bipartisan_data[bipartisan_data[:PresidentialCandidate] .!= "Unpledged Republican", :]
+bipartisan_data = bipartisan_data[bipartisan_data[:PresidentialCandidate] .!= "Unpledged Electors", :]
+
+firstyear = minimum(bipartisan_data[:Year]) - 4
+lastyear = maximum(bipartisan_data[:Year]) + 4
 
 p = plot(bipartisan_data, x=:Year, y=:Popular_Percent, 
          color=:Party, Geom.line, Geom.point, 
-         Scale.discrete_color_manual("red", "blue"))
+         Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
+         Scale.discrete_color_manual("red", "blue"),
+         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
 draw(SVG("plots/bi_popular_national.svg", 27cm, 9cm), p)
 p = plot(bipartisan_data, x=:Year, y=:Electoral_Percent, 
          color=:Party, Geom.line, Geom.point, 
-         Scale.discrete_color_manual("red", "blue"))
+         Guide.xlabel("Year"), Guide.ylabel("Popular Vote (%)"), 
+         Scale.discrete_color_manual("red", "blue"),
+         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
 draw(SVG("plots/bi_electoral_national.svg", 27cm, 9cm), p)
 p = plot(bipartisan_data, x=:Popular_Percent, y=:Electoral_Percent, 
          color=:Party, Geom.point, Geom.smooth(method=:lm), 
-         Scale.discrete_color_manual("red", "blue"))
+         Guide.xlabel("Popular Vote (%)"), Guide.ylabel("Electoral Vote (%)"), 
+         Scale.discrete_color_manual("red", "blue"),
+         Coord.Cartesian(ymin=0))
 draw(SVG("plots/bi_popular_v_electoral_national.svg", 27cm, 9cm), p)

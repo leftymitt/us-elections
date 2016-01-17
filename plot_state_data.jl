@@ -37,8 +37,14 @@ state_data[:Electoral_Percent] =
 ################################################################################
 # general plots.
 ################################################################################
+#for state in groupby(state_data[state_data[:State] .== "Alaska", :], :State)
 for state in groupby(state_data, :State)
-	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, Geom.point)
+	firstyear = Int(minimum(state[:Year]))-4
+	lastyear = Int(maximum(state[:Year]))+4
+	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
+	         Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
+	#display(p)
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
 	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 27cm, 9cm), p)
 end
@@ -51,8 +57,12 @@ democrat_data = state_data[state_data[:Party] .== "Democratic", :]
 bipartisan_data = vcat(republican_data, democrat_data)
 
 for state in groupby(bipartisan_data, :State)
+	firstyear = Int(minimum(state[:Year]))-4
+	lastyear = Int(maximum(state[:Year]))+4
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
-	         Geom.point, Scale.discrete_color_manual("red", "blue"))
+	         Geom.point, Scale.discrete_color_manual("red", "blue"),
+	         Guide.ylabel("Popular Vote (%)"), Guide.xlabel("Year"), 
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear))
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
 	draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 27cm, 9cm), p)
 end
@@ -67,5 +77,6 @@ bipartisan_diff = by( bipartisan_data_1860, [:Year, :State],
 
 p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State]) 
            for state in groupby(bipartisan_diff, :State) ]..., 
-         Theme(key_position=:none))
+         Theme(key_position=:none), Coord.Cartesian(xmin=1856, xmax=2016), 
+         Guide.ylabel("Popular Vote Difference (%)"), Guide.xlabel("Year")) 
 draw(SVG(string("plots/bi_all_states.svg"), 32cm, 9cm), p)
