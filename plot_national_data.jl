@@ -66,9 +66,11 @@ p = plot(joined_frame, x=:Year, y=:Percent, ygroup=:Category, color=:Party,
                line_width=2px, key_position=:bottom, key_max_columns=7))
 draw(SVG("plots/all_national.svg", 32cm, 16cm), p)
 
+ticks = collect(0:25:100)
 p = plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, 
          Guide.xlabel("Popular Vote (%)"), Guide.ylabel("Electoral Vote (%)"), 
-         Geom.point, Coord.Cartesian(ymin=0,ymax=100),
+         Guide.xticks(ticks=ticks), Guide.yticks(ticks=ticks),
+         Geom.point, Coord.Cartesian(ymin=0,ymax=100, xmin=0),
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
@@ -110,11 +112,13 @@ p = plot(joined_frame, x=:Year, y=:Percent, ygroup=:Category, color=:Party,
                line_width=2px, key_position=:bottom, key_max_columns=7))
 draw(SVG("plots/bi_national.svg", 32cm, 16cm), p)
 
+ticks = collect(0:25:100)
 p = plot(bi_nation_data, x=:Popular_Percent, y=:Electoral_Percent, 
          color=:Party, Geom.point, Geom.smooth(method=:lm), 
          Guide.xlabel("Popular Vote (%)"), Guide.ylabel("Electoral Vote (%)"), 
          Scale.discrete_color_manual("red", "blue"),
-         Coord.Cartesian(ymin=0, ymax=100),
+         Guide.xticks(ticks=ticks), Guide.yticks(ticks=ticks),
+         Coord.Cartesian(ymin=0,ymax=100, xmin=0),
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
