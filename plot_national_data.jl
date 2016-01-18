@@ -63,7 +63,7 @@ p = plot(joined_frame, x=:Year, y=:Percent, ygroup=:Category, color=:Party,
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
-               line_width=2px))
+               line_width=2px, key_position=:bottom, key_max_columns=7))
 draw(SVG("plots/all_national.svg", 32cm, 16cm), p)
 
 p = plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party, 
@@ -72,6 +72,7 @@ p = plot(national_data, x=:Popular_Percent, y=:Electoral_Percent, color=:Party,
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=7,
                default_point_size=5px))
 draw(SVG("plots/all_popular_v_electoral_national.svg", 32cm, 16cm), p)
 
@@ -106,7 +107,7 @@ p = plot(joined_frame, x=:Year, y=:Percent, ygroup=:Category, color=:Party,
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
-               line_width=2px))
+               line_width=2px, key_position=:bottom, key_max_columns=7))
 draw(SVG("plots/bi_national.svg", 32cm, 16cm), p)
 
 p = plot(bi_nation_data, x=:Popular_Percent, y=:Electoral_Percent, 
@@ -117,5 +118,6 @@ p = plot(bi_nation_data, x=:Popular_Percent, y=:Electoral_Percent,
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
                grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=7,
                default_point_size=5px))
 draw(SVG("plots/bi_popular_v_electoral_national.svg", 32cm, 16cm), p)
