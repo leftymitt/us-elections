@@ -42,8 +42,8 @@ national_data[:Electoral_Percent] =
 # general plots.
 ################################################################################
 
-firstyear = minimum(bi_nation_data[:Year]) - 4
-lastyear = maximum(bi_nation_data[:Year]) + 4
+firstyear = minimum(national_data[:Year]) - 4
+lastyear = maximum(national_data[:Year]) + 4
 ticks = collect(firstyear:8:lastyear)
 if length(ticks) > 20
 	ticks = collect(firstyear:12:lastyear)
