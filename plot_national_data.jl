@@ -10,10 +10,10 @@ include("utils.jl")
 ################################################################################
 national_data = readtable("data/national_data.txt", separator='\t');
 national_data[:Popular_Vote] = fixdata(national_data[:Popular_Vote]);
-#national_data[:Electoral_Vote] = fixdata(national_data[:Electoral_Vote]);
 rename!(national_data, :PoliticalParty, :Party)
 national_data = national_data[national_data[:PresidentialCandidate] .!= "Unpledged Republican", :]
 national_data = national_data[national_data[:PresidentialCandidate] .!= "Unpledged Electors", :]
+national_data = national_data[national_data[:Party] .!= "-", :]
 
 ################################################################################
 # calculate popular and electoral vote totals and percents.
