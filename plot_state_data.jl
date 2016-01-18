@@ -40,14 +40,16 @@ state_data[:Electoral_Percent] =
 for state in groupby(state_data, :State)
 	firstyear = Int(minimum(state[:Year]))-4
 	lastyear = Int(maximum(state[:Year]))+4
-	ticks = collect(firstyear:8:lastyear)
-	if length(ticks) > 20
-		ticks = collect(firstyear:12:lastyear)
+	xticks = collect(firstyear:8:lastyear)
+	if length(xticks) > 20
+		xticks = collect(firstyear:12:lastyear)
 	end
+	yticks = collect(0:25:100)
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
 	         Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
-            Guide.title(string(state[:State][1])), Guide.xticks(ticks=ticks),
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
+            Guide.title(string(state[:State][1])), 
+	         Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
             Theme(major_label_font_size=24px, key_title_font_size=24px, 
                   minor_label_font_size=18px, key_label_font_size=18px,
 	               line_width=2px,
@@ -67,15 +69,17 @@ bi_state_data = vcat(republican_data, democrat_data)
 for state in groupby(bi_state_data, :State)
 	firstyear = Int(minimum(state[:Year]))-4
 	lastyear = Int(maximum(state[:Year]))+4
-	ticks = collect(firstyear:8:lastyear)
-	if length(ticks) > 20
-		ticks = collect(firstyear:12:lastyear)
+	xticks = collect(firstyear:8:lastyear)
+	if length(xticks) > 20
+		xticks = collect(firstyear:12:lastyear)
 	end
+	yticks = collect(0:25:100)
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
 	         Geom.point, Scale.discrete_color_manual("red", "blue"),
 	         Guide.ylabel("Popular Vote (%)"), Guide.xlabel("Year"), 
-	         Guide.title(string(state[:State][1])), Guide.xticks(ticks=ticks),
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear),
+	         Guide.title(string(state[:State][1])), 
+	         Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
+	         Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
 				Theme(major_label_font_size=24px, key_title_font_size=24px, 
 						minor_label_font_size=18px, key_label_font_size=18px,
 	               line_width=2px,
@@ -104,3 +108,8 @@ p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State])
 	            grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=7))
 draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 16cm), p)
+
+
+################################################################################
+# cluster states by popular vote over time. 
+################################################################################
