@@ -25,6 +25,16 @@ state_data[:Popular_Percent] =
 	map((vote, total) -> vote / total * 100, state_data[:Popular_Vote], 
 	    state_data[:Popular_Total])
 
+# delaware?!?
+delaware = state_data[state_data[:State] .== "Delaware", :]
+delaware[:Popular_Total] = 
+	join(delaware, by(delaware, [:Year, :State], df -> sum(df[:Popular_Vote])), 
+	     on=[:State, :Year])[:x1]
+delaware[:Popular_Percent] =
+	map((vote, total) -> vote / total * 100, delaware[:Popular_Vote],
+	    delaware[:Popular_Total])
+state_data[state_data[:State] .== "Delaware", :] = delaware
+
 # get electoral vote percents by year
 state_data[:Electoral_Total] = 
 	join(state_data, by(state_data, [:Year, :State], 
@@ -97,11 +107,18 @@ bi_state_diff = by( bi_state_data_1860, [:Year, :State],
                       df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
 							       df[:Popular_Percent][df[:Party] .== "Democratic"] )
 
+firstyear = Int(minimum(bi_state_diff[:Year]))-4
+lastyear = Int(maximum(bi_state_diff[:Year]))+4
+xticks = collect(firstyear:8:lastyear)
+if length(xticks) > 20
+	xticks = collect(firstyear:12:lastyear)
+end
 p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State]) 
            for state in groupby(bi_state_diff, :State) ]..., 
-         Coord.Cartesian(xmin=1856, xmax=2016), 
+         Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
          Guide.title("Difference in Republican & Democratic Popular Vote"),
-         Guide.ylabel("Popular Vote Difference (%)"), Guide.xlabel("Year"), 
+         Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
+	      Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
 	            line_width=2px,
