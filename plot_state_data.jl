@@ -37,13 +37,12 @@ state_data[:Electoral_Percent] =
 ################################################################################
 # general plots.
 ################################################################################
-#for state in groupby(state_data[state_data[:State] .== "Alaska", :], :State)
 for state in groupby(state_data, :State)
 	firstyear = Int(minimum(state[:Year]))-4
 	lastyear = Int(maximum(state[:Year]))+4
-	ticks = [firstyear:8:lastyear]
+	ticks = collect(firstyear:8:lastyear)
 	if length(ticks) > 20
-		ticks = [firstyear:12:lastyear]
+		ticks = collect(firstyear:12:lastyear)
 	end
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
 	         Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
@@ -54,7 +53,6 @@ for state in groupby(state_data, :State)
 	               line_width=2px,
 		            grid_line_width=1px, grid_color=colorant"black",
                   key_position=:bottom, key_max_columns=7))
-	#display(p)
 	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
 	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 32cm, 16cm), p)
 end
@@ -69,9 +67,9 @@ bi_state_data = vcat(republican_data, democrat_data)
 for state in groupby(bi_state_data, :State)
 	firstyear = Int(minimum(state[:Year]))-4
 	lastyear = Int(maximum(state[:Year]))+4
-	ticks = [firstyear:8:lastyear]
+	ticks = collect(firstyear:8:lastyear)
 	if length(ticks) > 20
-		ticks = [firstyear:12:lastyear]
+		ticks = collect(firstyear:12:lastyear)
 	end
 	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
 	         Geom.point, Scale.discrete_color_manual("red", "blue"),
