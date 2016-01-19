@@ -2,6 +2,7 @@
 
 using Gadfly
 using DataFrames
+using Clustering
 
 include("utils.jl")
 
@@ -106,6 +107,7 @@ bi_state_data_1860 = bi_state_data[bi_state_data[:Year] .>= 1860, :]
 bi_state_diff = by( bi_state_data_1860, [:Year, :State], 
                       df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
 							       df[:Popular_Percent][df[:Party] .== "Democratic"] )
+rename!(bi_state_diff, :x1, :Difference)
 
 firstyear = Int(minimum(bi_state_diff[:Year]))-4
 lastyear = Int(maximum(bi_state_diff[:Year]))+4
@@ -113,20 +115,20 @@ xticks = collect(firstyear:8:lastyear)
 if length(xticks) > 20
 	xticks = collect(firstyear:12:lastyear)
 end
-p = plot([ layer(state, x=:Year, y=:x1,  Geom.line, color=state[:State]) 
-           for state in groupby(bi_state_diff, :State) ]..., 
-         Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Difference in Republican & Democratic Popular Vote"),
+p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point, 
+         color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
+         Guide.title("Difference in Republican and Democratic Popular Vote"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 	      Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
-               key_position=:bottom, key_max_columns=7))
+               key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 16cm), p)
 
 
 ################################################################################
 # cluster states by popular vote over time. 
 ################################################################################
+
