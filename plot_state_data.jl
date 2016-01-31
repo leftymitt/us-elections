@@ -3,6 +3,7 @@
 using Gadfly
 using DataFrames
 using Clustering
+using StatsBase
 using MultivariateStats
 
 include("utils.jl")
@@ -227,7 +228,7 @@ end
 
 p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point, 
          color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Difference in Republican and Democratic Popular Vote"),
+         Guide.title("Republican - Democratic Vote (%) by State"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 	      Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
@@ -248,11 +249,31 @@ bi_region_diff =
              sum(df[:Popular_Total]) * 100 )
 rename!(bi_region_diff, :x1, :Difference)
 
+bi_region_diff = 
+	by( bi_state_data_1860, [:Year, :Region], 
+	    df -> DataFrame(
+	             Difference =
+	                (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
+	                 sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
+	                 sum(df[:Popular_Total])*100,
+	             Error = 
+	                std((df[:Popular_Vote][df[:Party] .== "Republican"] -
+	                     df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
+	                    (df[:Popular_Total][df[:Party] .== "Republican"] + 
+	                     df[:Popular_Total][df[:Party] .== "Democratic"]), 
+	                    weights(
+                          df[:Popular_Total][df[:Party] .== "Republican"] + 
+                          df[:Popular_Total][df[:Party] .== "Democratic"])
+	                    ).* 100 ) )
+
 p = plot(bi_region_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Region, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Difference in Republican and Democratic Popular Vote"),
+         Guide.title("Republican - Democratic Vote (%) by Region"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 	      Guide.xticks(ticks=xticks),  
+			Geom.ribbon,  
+			ymin=bi_region_diff[:Difference] - bi_region_diff[:Error],
+			ymax=bi_region_diff[:Difference] + bi_region_diff[:Error],
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
 	            line_width=2px,
@@ -267,15 +288,28 @@ draw(SVG(string("plots/bi_difference_all_regions.svg"), 32cm, 16cm), p)
 
 bi_division_diff = 
 	by( bi_state_data_1860, [:Year, :Division], 
-	    df -> (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
-              sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
-             sum(df[:Popular_Total]) * 100 )
-rename!(bi_division_diff, :x1, :Difference)
+	    df -> DataFrame(
+	             Difference =
+	                (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
+	                 sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
+	                 sum(df[:Popular_Total])*100,
+	             Error = 
+	                std((df[:Popular_Vote][df[:Party] .== "Republican"] -
+	                     df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
+	                    (df[:Popular_Total][df[:Party] .== "Republican"] + 
+	                     df[:Popular_Total][df[:Party] .== "Democratic"]), 
+	                    weights(
+                          df[:Popular_Total][df[:Party] .== "Republican"] + 
+                          df[:Popular_Total][df[:Party] .== "Democratic"])
+	                    ).* 100 ) )
 
 p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Division, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Difference in Republican and Democratic Popular Vote"),
+         Guide.title("Republican - Democratic Vote (%) by Division"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
+			Geom.ribbon,  
+			ymin=bi_division_diff[:Difference] - bi_division_diff[:Error],
+			ymax=bi_division_diff[:Difference] + bi_division_diff[:Error],
 	      Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
@@ -284,6 +318,11 @@ p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
 
+
+n = 1000
+plot( 
+	[ layer(x=cumsum(rand(n)-.5), y=cumsum(rand(n)-.5), Geom.path()) for i in 1:5 ]...
+	)
 
 ################################################################################
 # cluster states by popular vote over time. 
