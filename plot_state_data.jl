@@ -83,33 +83,6 @@ midwest   = vcat(east_north_central, west_north_central)
 south     = vcat(south_atlantic, east_south_central, west_south_central)
 west      = vcat(mountain, pacific)
 
-#state_data[:Region] = "NA"
-#for idx in 1:length(state_data[:State])
-#	println(state_data[:State][idx])
-#	if state_data[:State][idx] in northeast
-#		state_data[:Region][idx] = "Northeast"
-#	elseif state_data[:State][idx] in midwest
-#		state_data[:Region][idx] = "Midwest"
-#	elseif state_data[:State][idx] in south
-#		state_data[:Region][idx] = "South"
-#	elseif state_data[:State][idx] in west
-#		state_data[:Region][idx] = "West"
-#	end
-#end
-
-#state_data[:Region] = "NA"
-#by(state_data, [:State, :Region]) do df
-#	if !isempty(intersect(northeast, df[:State]))
-#		df[:Region] = "Northeast"
-#	elseif !isempty(intersect(midwest, df[:State]))
-#		df[:Region] = "Midwest"
-#	elseif !isempty(intersect(west, df[:State]))
-#		df[:Region] = "West"
-#	elseif !isempty(intersect(south, df[:State]))
-#		df[:Region] = "South"
-#	end
-#end
-
 state_data = 
 	join(state_data, 
 	     (by(state_data, [:State]) do df
@@ -123,7 +96,6 @@ state_data =
          		DataFrame(Region="South")
          	end
          end), on=[:State])
-#rename!(state_data, :x1, :Region)
 
 state_data = 
 	join(state_data, 
@@ -148,7 +120,6 @@ state_data =
          		DataFrame(Division="Pacific")
          	end
          end), on=[:State])
-#rename!(state_data, :x1, :Division)
 
 
 ################################################################################
@@ -239,16 +210,10 @@ p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 16cm), p)
 
+
 ################################################################################
 # all regions over time.
 ################################################################################
-
-bi_region_diff = 
-	by( bi_state_data_1860, [:Year, :Region], 
-	    df -> (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
-              sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
-             sum(df[:Popular_Total]) * 100 )
-rename!(bi_region_diff, :x1, :Difference)
 
 bi_region_diff = 
 	by( bi_state_data_1860, [:Year, :Region], 
@@ -323,15 +288,6 @@ draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
 ################################################################################
 # cluster states by popular vote over time. 
 ################################################################################
-
-#delaware = bi_state_diff[bi_state_diff[:State] .== "Delaware", :]
-#texas = bi_state_diff[bi_state_diff[:State] .== "Texas", :]
-#alabama = bi_state_diff[bi_state_diff[:State] .== "Alabama", :]
-#wisconsin = bi_state_diff[bi_state_diff[:State] .== "Wisconsin", :]
-#newyork = bi_state_diff[bi_state_diff[:State] .== "New York", :]
-#california = bi_state_diff[bi_state_diff[:State] .== "California", :]
-#utah = bi_state_diff[bi_state_diff[:State] .== "Utah", :]
-#wyoming = bi_state_diff[bi_state_diff[:State] .== "Wyoming", :]
 
 # send pca_frame to this function. 
 function get_xcorr(frame, state1, state2)
