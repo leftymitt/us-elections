@@ -3,6 +3,7 @@
 using Gadfly
 using DataFrames
 using Clustering
+using Distances
 using StatsBase
 using MultivariateStats
 
@@ -113,41 +114,41 @@ state_data =
 	join(state_data, 
 	     (by(state_data, [:State]) do df
 	         if !isempty(intersect(northeast, df[:State]))
-		         "Northeast"
+		         DataFrame(Region="Northeast")
          	elseif !isempty(intersect(midwest, df[:State]))
-         		"Midwest"
+         		DataFrame(Region="Midwest")
          	elseif !isempty(intersect(west, df[:State]))
-         		"West"
+         		DataFrame(Region="West")
          	elseif !isempty(intersect(south, df[:State]))
-         		"South"
+         		DataFrame(Region="South")
          	end
          end), on=[:State])
-rename!(state_data, :x1, :Region)
+#rename!(state_data, :x1, :Region)
 
 state_data = 
 	join(state_data, 
 	     (by(state_data, [:State]) do df
 	         if !isempty(intersect(west_south_central, df[:State]))
-		         "West South Central"
+		         DataFrame(Division="West South Central")
          	elseif !isempty(intersect(new_england, df[:State]))
-         		"New England"
+         		DataFrame(Division="New England")
          	elseif !isempty(intersect(mid_atlantic, df[:State]))
-         		"Mid-Atlantic"
+         		DataFrame(Division="Mid-Atlantic")
          	elseif !isempty(intersect(east_north_central, df[:State]))
-         		"East North Central"
+         		DataFrame(Division="East North Central")
          	elseif !isempty(intersect(west_north_central, df[:State]))
-         		"West North Central"
+         		DataFrame(Division="West North Central")
          	elseif !isempty(intersect(south_atlantic, df[:State]))
-         		"South Atlantic"
+         		DataFrame(Division="South Atlantic")
          	elseif !isempty(intersect(east_south_central, df[:State]))
-         		"East South Central"
+         		DataFrame(Division="East South Central")
          	elseif !isempty(intersect(mountain, df[:State]))
-         		"Mountain"
+         		DataFrame(Division="Mountain")
          	elseif !isempty(intersect(pacific, df[:State]))
-         		"Pacific"
+         		DataFrame(Division="Pacific")
          	end
          end), on=[:State])
-rename!(state_data, :x1, :Division)
+#rename!(state_data, :x1, :Division)
 
 
 ################################################################################
@@ -214,7 +215,7 @@ end
 ################################################################################
 
 bi_state_data_1860 = bi_state_data[bi_state_data[:Year] .>= 1860, :]
-bi_state_diff = by( bi_state_data_1860, [:Year, :State], 
+bi_state_diff = by( bi_state_data_1860, [:Year, :State, :Region, :Division], 
                     df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
                           df[:Popular_Percent][df[:Party] .== "Democratic"] )
 rename!(bi_state_diff, :x1, :Difference)
@@ -228,7 +229,7 @@ end
 
 p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point, 
          color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Republican - Democratic Vote (%) by State"),
+         Guide.title("Republican - Democratic Popular Vote (%) by State"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 	      Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
@@ -268,7 +269,7 @@ bi_region_diff =
 
 p = plot(bi_region_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Region, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Republican - Democratic Vote (%) by Region"),
+         Guide.title("Republican - Democratic Popular Vote (%) by Region"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 	      Guide.xticks(ticks=xticks),  
 			Geom.ribbon,  
@@ -305,7 +306,7 @@ bi_division_diff =
 
 p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Division, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
-         Guide.title("Republican - Democratic Vote (%) by Division"),
+         Guide.title("Republican - Democratic Popular Vote (%) by Division"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
 			Geom.ribbon,  
 			ymin=bi_division_diff[:Difference] - bi_division_diff[:Error],
@@ -318,11 +319,6 @@ p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
 
-
-n = 1000
-plot( 
-	[ layer(x=cumsum(rand(n)-.5), y=cumsum(rand(n)-.5), Geom.path()) for i in 1:5 ]...
-	)
 
 ################################################################################
 # cluster states by popular vote over time. 
@@ -363,10 +359,13 @@ end
 for idx in 2:ncol(pca_frame)
 	pca_frame[:,idx] = pca_frame[:,idx] - mean(pca_frame[:,idx])
 end
+for idx in 2:nrow(pca_frame)
+	pca_frame[idx, :] = pca_frame[idx, :] - mean(pca_frame[idx, :])
+end
 
 features = convert(Array, pca_frame[:, 2:end])
-pc1 = fit(PCA, features; maxoutdim=2)
-pc2 = fit(PCA, features'; maxoutdim=2)
+pc1 = fit(PCA, features; maxoutdim=3)
+pc2 = fit(PCA, features'; maxoutdim=3)
 pca_reduced1 = transform(pc1, features)
 pca_reduced2 = transform(pc2, features')
 
@@ -405,7 +404,6 @@ p = plot(bi_state_diff, x=pca_reduced2[1,:], y=pca_reduced2[2,:],
 
 # k-means
 pc1_kmeans = kmeans(pca_reduced1, 4)
-bi_state_diff[:kmeans] = pc1_kmeans.assignments
 p = plot(bi_state_diff, x=pca_reduced1[1,:], y=pca_reduced1[2,:],
          color=pc1_kmeans.assignments, 
 			Geom.point, 
