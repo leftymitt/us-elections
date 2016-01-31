@@ -383,6 +383,8 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
 					key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_difference_pca_state.svg", 20cm, 16cm), p)
+
 
 #p = plot(bi_state_diff, x=pca_reduced2[1,:], y=pca_reduced2[2,:], 
 #         color=[ string(year) for year in pca_frame[:Year] ], Geom.point, 
