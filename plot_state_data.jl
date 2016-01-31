@@ -328,3 +328,104 @@ plot(
 # cluster states by popular vote over time. 
 ################################################################################
 
+#delaware = bi_state_diff[bi_state_diff[:State] .== "Delaware", :]
+#texas = bi_state_diff[bi_state_diff[:State] .== "Texas", :]
+#alabama = bi_state_diff[bi_state_diff[:State] .== "Alabama", :]
+#wisconsin = bi_state_diff[bi_state_diff[:State] .== "Wisconsin", :]
+#newyork = bi_state_diff[bi_state_diff[:State] .== "New York", :]
+#california = bi_state_diff[bi_state_diff[:State] .== "California", :]
+#utah = bi_state_diff[bi_state_diff[:State] .== "Utah", :]
+#wyoming = bi_state_diff[bi_state_diff[:State] .== "Wyoming", :]
+
+# send pca_frame to this function. 
+function get_xcorr(frame, state1, state2)
+	state1_array = convert(Array, frame[symbol(state1)])
+	state2_array = convert(Array, frame[symbol(state2)])
+	return crosscor(state1_array, state2_array, [0])
+end
+
+# drop some states
+bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "D. C.", :]
+bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Hawaii", :]
+bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Alaska", :]
+
+#bi_state_diff[:Difference] = bi_state_diff[:Difference] / 100
+#bi_state_diff[:Norm_Diff] = by(bi_state_diff, [:State], df -> df[:Difference] - mean(df[:Difference]))[:x1]
+
+pca_frame = DataFrame()
+pca_frame[:Year] = collect(1860:4:2012)
+for state in groupby(bi_state_diff, :State)
+	pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
+	rename!(pca_frame, :Difference, symbol(state[:State][1]))
+end
+
+# subtract means
+for idx in 2:ncol(pca_frame)
+	pca_frame[:,idx] = pca_frame[:,idx] - mean(pca_frame[:,idx])
+end
+
+features = convert(Array, pca_frame[:, 2:end])
+pc1 = fit(PCA, features; maxoutdim=2)
+pc2 = fit(PCA, features'; maxoutdim=2)
+pca_reduced1 = transform(pc1, features)
+pca_reduced2 = transform(pc2, features')
+
+p = plot(bi_state_diff, x=pca_reduced1[1,:], y=pca_reduced1[2,:],
+         color=bi_state_diff[:State][bi_state_diff[:Year] .== 2000], 
+			Geom.point, 
+         label=bi_state_diff[:State][bi_state_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+					key_position=:none, key_max_columns=10))
+
+p = plot(bi_state_diff, x=pca_reduced1[1,:], y=pca_reduced1[2,:],
+         color=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
+			Geom.point, 
+         label=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+					key_position=:none, key_max_columns=10))
+
+p = plot(bi_state_diff, x=pca_reduced2[1,:], y=pca_reduced2[2,:], 
+         color=[ string(year) for year in pca_frame[:Year] ], Geom.point, 
+         label=[ string(year) for year in pca_frame[:Year] ], 
+         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+					key_position=:none, key_max_columns=10))
+
+
+# k-means
+pc1_kmeans = kmeans(pca_reduced1, 4)
+bi_state_diff[:kmeans] = pc1_kmeans.assignments
+p = plot(bi_state_diff, x=pca_reduced1[1,:], y=pca_reduced1[2,:],
+         color=pc1_kmeans.assignments, 
+			Geom.point, 
+         label=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+					key_max_columns=10))
+
+# dbscan
+pc1_dbscan = dbscan(pairwise(SqEuclidean(), pca_reduced1), 150, 2)
+p = plot(bi_state_diff, x=pca_reduced1[1,:], y=pca_reduced1[2,:],
+         color=pc1_dbscan.assignments, 
+			Geom.point, 
+         label=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+					key_max_columns=10))
