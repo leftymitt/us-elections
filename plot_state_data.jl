@@ -289,20 +289,10 @@ draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
 # cluster states by popular vote over time. 
 ################################################################################
 
-# send pca_frame to this function. 
-function get_xcorr(frame, state1, state2)
-	state1_array = convert(Array, frame[symbol(state1)])
-	state2_array = convert(Array, frame[symbol(state2)])
-	return crosscor(state1_array, state2_array, [0])
-end
-
 # drop some states
 bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "D. C.", :]
 bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Hawaii", :]
 bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Alaska", :]
-
-#bi_state_diff[:Difference] = bi_state_diff[:Difference] / 100
-#bi_state_diff[:Norm_Diff] = by(bi_state_diff, [:State], df -> df[:Difference] - mean(df[:Difference]))[:x1]
 
 #pca_frame = unstack(stack(bi_state_diff, :Year), :value, :State, :Difference)
 #bi_state_diff = by( bi_state_diff, [:State, :Region, :Division], 
@@ -317,15 +307,12 @@ end
 
 # subtract means
 for idx in 2:ncol(pca_frame)
-	#pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) 
 	pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
 end
 
 features = convert(Array, pca_frame[:, 2:end]) 
 pc = fit(PCA, features; maxoutdim=3)
 pca_reduced = transform(pc, features)
-#pc2 = fit(PCA, features'; maxoutdim=3)
-#pca_reduced2 = transform(pc2, features')
 
 p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
@@ -340,18 +327,6 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 	            grid_line_width=1px, grid_color=colorant"black",
 					key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_difference_pca_state.svg", 20cm, 16cm), p)
-
-
-#p = plot(bi_state_diff, x=pca_reduced2[1,:], y=pca_reduced2[2,:], 
-#         color=[ string(year) for year in pca_frame[:Year] ], Geom.point, 
-#         label=[ string(year) for year in pca_frame[:Year] ], 
-#         Geom.label(position=:dynamic, hide_overlaps=false), 
-#         Theme(major_label_font_size=24px, key_title_font_size=24px, 
-#               minor_label_font_size=18px, key_label_font_size=18px,
-#	            line_width=2px,
-#	            grid_line_width=1px, grid_color=colorant"black",
-#					key_position=:none, key_max_columns=10))
-
 
 # k-means
 pc_kmeans = kmeans(pca_reduced, 4)
@@ -382,3 +357,21 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
 					key_max_columns=10))
+
+
+################################################################################
+# cluster each election. 
+################################################################################
+
+#pc2 = fit(PCA, features'; maxoutdim=3)
+#pca_reduced2 = transform(pc2, features')
+
+#p = plot(bi_state_diff, x=pca_reduced2[1,:], y=pca_reduced2[2,:], 
+#         color=[ string(year) for year in pca_frame[:Year] ], Geom.point, 
+#         label=[ string(year) for year in pca_frame[:Year] ], 
+#         Geom.label(position=:dynamic, hide_overlaps=false), 
+#         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+#               minor_label_font_size=18px, key_label_font_size=18px,
+#	            line_width=2px,
+#	            grid_line_width=1px, grid_color=colorant"black",
+#					key_position=:none, key_max_columns=10))
