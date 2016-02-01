@@ -41,6 +41,16 @@ delaware[:Popular_Percent] =
 	    delaware[:Popular_Total])
 state_data[state_data[:State] .== "Delaware", :] = delaware
 
+# dc?!?
+dc = state_data[state_data[:State] .== "D. C.", :]
+dc[:Popular_Total] = 
+	join(dc, by(dc, [:Year, :State], df -> sum(df[:Popular_Vote])), 
+	     on=[:State, :Year])[:x1]
+dc[:Popular_Percent] =
+	map((vote, total) -> vote / total * 100, dc[:Popular_Vote],
+	    dc[:Popular_Total])
+state_data[state_data[:State] .== "D. C.", :] = dc
+
 # get electoral vote percents by year
 state_data[:Electoral_Total] = 
 	join(state_data, by(state_data, [:Year, :State], 
@@ -186,10 +196,15 @@ end
 ################################################################################
 
 bi_state_data_1860 = bi_state_data[bi_state_data[:Year] .>= 1860, :]
-bi_state_diff = by( bi_state_data_1860, [:Year, :State, :Region, :Division], 
-                    df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
-                          df[:Popular_Percent][df[:Party] .== "Democratic"] )
-rename!(bi_state_diff, :x1, :Difference)
+bi_state_diff = 
+	by( bi_state_data_1860, [:Year, :State, :Region, :Division], 
+	    df -> DataFrame(
+	             Difference = 
+	                (df[:Popular_Percent][df[:Party] .== "Republican"] - 
+	                 df[:Popular_Percent][df[:Party] .== "Democratic"]),
+	             Total = 
+	                (sum(df[:Popular_Percent][df[:Party] .== "Republican"]) + 
+	                 sum(df[:Popular_Percent][df[:Party] .== "Democratic"])) ) )
 
 firstyear = Int(minimum(bi_state_diff[:Year]))-4
 lastyear = Int(maximum(bi_state_diff[:Year]))+4
@@ -209,6 +224,18 @@ p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point,
 	            grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 16cm), p)
+
+p = plot(bi_state_diff, x=:Year, y=:Total, Geom.line, Geom.point, 
+         color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymax=100), 
+         Guide.title("Total Republican and Democratic Popular Vote (%) by State"),
+         Guide.ylabel("Total (%)"), Guide.xlabel("Year"), 
+	      Guide.xticks(ticks=xticks),  
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+	            line_width=2px,
+	            grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG(string("plots/bi_total_all_states.svg"), 32cm, 16cm), p)
 
 
 ################################################################################
