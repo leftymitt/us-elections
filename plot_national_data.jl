@@ -113,6 +113,23 @@ p = plot(joined_frame, x=:Year, y=:Percent, ygroup=:Category, color=:Party,
                line_width=2px, key_position=:bottom, key_max_columns=7))
 draw(SVG("plots/bi_national.svg", 32cm, 16cm), p)
 
+# combined popular and electoral vote over time. (after 1860)
+total_joined_frame = by(joined_frame, [:Category, :Year], 
+                        df -> DataFrame(Percent = sum(df[:Percent])))
+total_joined_frame = total_joined_frame[total_joined_frame[:Year] .>= 1860, :]
+p = plot(total_joined_frame, x=:Year, y=:Percent, ygroup=:Category,  
+         Geom.subplot_grid(Geom.point, Geom.line, Guide.xticks(ticks=ticks),
+                           Guide.yticks(ticks=collect(0:25:100)),
+                           Coord.Cartesian(xmin=1856, xmax=lastyear,
+                                           ymin=0, ymax=100)),
+         Scale.discrete_color_manual("red", "blue"),
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+               grid_line_width=1px, grid_color=colorant"black",
+               line_width=2px, key_position=:bottom, key_max_columns=7))
+draw(SVG("plots/bi_total_national.svg", 32cm, 16cm), p)
+
+
 # plot electoral percent against popular vote percent.
 ticks = collect(0:25:100)
 p = plot(bi_nation_data, x=:Popular_Percent, y=:Electoral_Percent, 
@@ -130,7 +147,7 @@ draw(SVG("plots/bi_popular_v_electoral_national.svg", 32cm, 16cm), p)
 
 # plot difference in republican and democrate electoral and popular vote % 
 # against each other. 
-bi_nation_1860 = bi_nation_data[bi_nation_data[:Year] .>= 1860, :]
+bi_nation_data_1860 = bi_nation_data[bi_nation_data[:Year] .>= 1860, :]
 bi_nation_diff = by( bi_nation_data_1860, [:Year], 
                      df -> df[:Popular_Percent][df[:Party] .== "Republican"] - 
                            df[:Popular_Percent][df[:Party] .== "Democratic"] )
@@ -149,8 +166,8 @@ p = plot(bi_nation_diff, x=:Popular_Diff, y=:Electoral_Diff,
          Guide.xlabel("Popular Difference (%)"), 
          Guide.ylabel("Electoral Difference (%)"), 
          Coord.Cartesian(ymin=-100,ymax=100),
-         Theme(major_label_font_size=24px, key_title_font_size=24px, 
-               minor_label_font_size=18px, key_label_font_size=18px,
+         Theme(major_label_font_size=18px, key_title_font_size=18px, 
+               minor_label_font_size=14px, key_label_font_size=14px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:none, key_max_columns=7,
                default_point_size=5px))
