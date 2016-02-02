@@ -313,13 +313,8 @@ draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
 
 
 ################################################################################
-# cluster states by popular vote over time. 
+# cluster all states by popular vote over time. 
 ################################################################################
-
-# drop some states
-bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "D. C.", :]
-bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Hawaii", :]
-bi_state_diff = bi_state_diff[bi_state_diff[:State] .!= "Alaska", :]
 
 #pca_frame = unstack(stack(bi_state_diff, :Year), :value, :State, :Difference)
 #bi_state_diff = by( bi_state_diff, [:State, :Region, :Division], 
@@ -345,15 +340,16 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
          Geom.point, 
          label=bi_state_diff[:State][bi_state_diff[:Year] .== 2000], 
-         Geom.label(position=:dynamic, hide_overlaps=false), 
+         Geom.label(position=:dynamic, hide_overlaps=true), 
          Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
          Guide.title("PCA of States"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
+					point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
-draw(SVG("plots/bi_difference_pca_state.svg", 20cm, 16cm), p)
+draw(SVG("plots/bi_diff_pca_state.svg", 20cm, 16cm), p)
 
 # k-means
 pc_kmeans = kmeans(pca_reduced, 4)
@@ -361,14 +357,16 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=[ string(group) for group in  pc_kmeans.assignments ], 
          Geom.point, 
          label=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
-         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Geom.label(position=:dynamic,hide_overlaps=true), 
          Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
-         Guide.title("K-means Clustering of State PCA"), 
+         Guide.title("k-means Clustering of State PCA"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
+					point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
-               key_max_columns=10))
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_kmeans_state.svg", 20cm, 16cm), p)
 
 # dbscan
 pc_dbscan = dbscan(pairwise(SqEuclidean(), pca_reduced), 150, 2)
@@ -377,7 +375,87 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=[ string(group) for group in  pc_dbscan.assignments ], 
          Geom.point, 
          label=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
-         Geom.label(position=:dynamic,hide_overlaps=false), 
+         Geom.label(position=:dynamic,hide_overlaps=true), 
+         Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
+         Guide.title("DBSCAN Clustering of State PCA"), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_max_columns=10))
+
+
+################################################################################
+# cluster most states by popular vote over time. 
+################################################################################
+
+bi_some_diff = bi_state_diff
+
+# drop some states
+bi_some_diff = bi_some_diff[bi_some_diff[:State] .!= "D. C.", :]
+bi_some_diff = bi_some_diff[bi_some_diff[:State] .!= "Hawaii", :]
+bi_some_diff = bi_some_diff[bi_some_diff[:State] .!= "Alaska", :]
+
+#pca_frame = unstack(stack(bi_some_diff, :Year), :value, :State, :Difference)
+#bi_some_diff = by( bi_some_diff, [:State, :Region, :Division], 
+#                df -> DataFrame(Difference = df[:Difference] - mean(df[:Difference])) )
+
+pca_frame = DataFrame()
+pca_frame[:Year] = collect(1860:4:2012)
+for state in groupby(bi_some_diff, :State)
+	pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
+	rename!(pca_frame, :Difference, symbol(state[:State][1]))
+end
+
+# subtract means
+for idx in 2:ncol(pca_frame)
+	pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
+end
+
+features = convert(Array, pca_frame[:, 2:end]) 
+pc = fit(PCA, features; maxoutdim=3)
+pca_reduced = transform(pc, features)
+
+p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
+         color=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
+         Geom.point, 
+         label=bi_some_diff[:State][bi_some_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic, hide_overlaps=true), 
+         Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
+         Guide.title("PCA of States"), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+					point_label_font_size=13px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_some_state.svg", 20cm, 16cm), p)
+
+# k-means
+pc_kmeans = kmeans(pca_reduced, 4)
+p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
+         color=[ string(group) for group in  pc_kmeans.assignments ], 
+         Geom.point, 
+         label=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=true), 
+         Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
+         Guide.title("k-means Clustering of State PCA"), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+					point_label_font_size=13px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_kmeans_some_state.svg", 20cm, 16cm), p)
+
+# dbscan
+pc_dbscan = dbscan(pairwise(SqEuclidean(), pca_reduced), 150, 2)
+p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
+         color=pc_dbscan.assignments, 
+         color=[ string(group) for group in  pc_dbscan.assignments ], 
+         Geom.point, 
+         label=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic,hide_overlaps=true), 
          Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
          Guide.title("DBSCAN Clustering of State PCA"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
