@@ -416,6 +416,7 @@ features = convert(Array, pca_frame[:, 2:end])
 pc = fit(PCA, features; maxoutdim=3)
 pca_reduced = transform(pc, features)
 
+# plot pc1 v pc2
 p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
          Geom.point, 
@@ -430,6 +431,24 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_some_state.svg", 20cm, 16cm), p)
+
+# plot pc1 loadings
+firstyear = Int(minimum(pca_frame[:Year]))-4
+lastyear = Int(maximum(pca_frame[:Year]))+4
+xticks = collect(firstyear:8:lastyear)
+if length(xticks) > 20
+	xticks = collect(firstyear:12:lastyear)
+end
+
+p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar, 
+         Guide.xlabel("Year"), Guide.ylabel("PC1 Loadings"), 
+         Guide.xticks(ticks=xticks), 
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=14px, key_label_font_size=14px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_pc1_some_state.svg", 12cm, 8cm), p)
 
 # k-means
 pc_kmeans = kmeans(pca_reduced, 4)
@@ -449,7 +468,7 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 draw(SVG("plots/bi_diff_pca_kmeans_some_state.svg", 20cm, 16cm), p)
 
 # dbscan
-pc_dbscan = dbscan(pairwise(SqEuclidean(), pca_reduced), 150, 2)
+pc_dbscan = dbscan(pairwise(SqEuclidean(), pca_reduced), .1, 2)
 p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=pc_dbscan.assignments, 
          color=[ string(group) for group in  pc_dbscan.assignments ], 
