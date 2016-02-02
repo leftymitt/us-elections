@@ -336,6 +336,25 @@ features = convert(Array, pca_frame[:, 2:end])
 pc = fit(PCA, features; maxoutdim=3)
 pca_reduced = transform(pc, features)
 
+# plot pc1 loadings
+firstyear = Int(minimum(pca_frame[:Year]))-4
+lastyear = Int(maximum(pca_frame[:Year]))+4
+xticks = collect(firstyear:8:lastyear)
+if length(xticks) > 20
+	xticks = collect(firstyear:12:lastyear)
+end
+
+p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar, 
+         Guide.xlabel("Year"), Guide.ylabel("PC1 Loadings"), 
+         Guide.xticks(ticks=xticks), 
+         Theme(major_label_font_size=20px, key_title_font_size=20px, 
+               minor_label_font_size=14px, key_label_font_size=14px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_pc1_state.svg", 12cm, 8cm), p)
+
+# plot pc1 v pc2
 p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          color=bi_state_diff[:Region][bi_state_diff[:Year] .== 2000], 
          Geom.point, 
@@ -416,22 +435,6 @@ features = convert(Array, pca_frame[:, 2:end])
 pc = fit(PCA, features; maxoutdim=3)
 pca_reduced = transform(pc, features)
 
-# plot pc1 v pc2
-p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
-         color=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
-         Geom.point, 
-         label=bi_some_diff[:State][bi_some_diff[:Year] .== 2000], 
-         Geom.label(position=:dynamic, hide_overlaps=true), 
-         Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
-         Guide.title("PCA of States"), 
-         Theme(major_label_font_size=24px, key_title_font_size=24px, 
-               minor_label_font_size=18px, key_label_font_size=18px,
-					point_label_font_size=13px,
-               line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
-               key_position=:bottom, key_max_columns=10))
-draw(SVG("plots/bi_diff_pca_some_state.svg", 20cm, 16cm), p)
-
 # plot pc1 loadings
 firstyear = Int(minimum(pca_frame[:Year]))-4
 lastyear = Int(maximum(pca_frame[:Year]))+4
@@ -449,6 +452,22 @@ p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_pc1_some_state.svg", 12cm, 8cm), p)
+
+# plot pc1 v pc2
+p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
+         color=bi_some_diff[:Region][bi_some_diff[:Year] .== 2000], 
+         Geom.point, 
+         label=bi_some_diff[:State][bi_some_diff[:Year] .== 2000], 
+         Geom.label(position=:dynamic, hide_overlaps=true), 
+         Guide.xlabel("PC1"), Guide.ylabel("PC2"), 
+         Guide.title("PCA of States"), 
+         Theme(major_label_font_size=24px, key_title_font_size=24px, 
+               minor_label_font_size=18px, key_label_font_size=18px,
+					point_label_font_size=13px,
+               line_width=2px,
+               grid_line_width=1px, grid_color=colorant"black",
+               key_position=:bottom, key_max_columns=10))
+draw(SVG("plots/bi_diff_pca_some_state.svg", 20cm, 16cm), p)
 
 # k-means
 pc_kmeans = kmeans(pca_reduced, 4)
