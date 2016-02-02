@@ -2,7 +2,12 @@
 
 scripts for acquiring, aggregating, and analyizing us election data.  
 
-requires python(3), pandas, beautifulsoup4, julia, gadfly, and curl.  
+requires: 
+
+ 1. python3 - pandas, beautifulsoup4 
+ 2. julia - gadfly, dataframes, clustering, distances, statsbase, multivariatestats
+ 3. curl  
+
 
 ```
 $ ./acquire_data.sh
