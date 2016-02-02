@@ -223,7 +223,7 @@ p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point,
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
-draw(SVG(string("plots/bi_difference_all_states.svg"), 32cm, 16cm), p)
+draw(SVG(string("plots/bi_diff_all_states.svg"), 32cm, 16cm), p)
 
 p = plot(bi_state_diff, x=:Year, y=:Total, Geom.line, Geom.point, 
          color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymax=100), 
@@ -272,7 +272,7 @@ p = plot(bi_region_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
-draw(SVG(string("plots/bi_difference_all_regions.svg"), 32cm, 16cm), p)
+draw(SVG(string("plots/bi_diff_all_regions.svg"), 32cm, 16cm), p)
 
 
 ################################################################################
@@ -309,7 +309,7 @@ p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
 	            line_width=2px,
 	            grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
-draw(SVG(string("plots/bi_difference_all_divisions.svg"), 32cm, 16cm), p)
+draw(SVG(string("plots/bi_diff_all_divisions.svg"), 32cm, 16cm), p)
 
 
 ################################################################################
