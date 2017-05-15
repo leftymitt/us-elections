@@ -1,4 +1,5 @@
 #! /bin/bash
+set -eu
 
 ################################################################################
 # define global variables and functions.
