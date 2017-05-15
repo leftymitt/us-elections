@@ -24,41 +24,41 @@ rename!(state_data, :PoliticalParty, :Party)
 
 # get popular vote percents by year
 state_data[:Popular_Total] = 
-	join(state_data, by(state_data, [:Year, :State], 
-	                    df -> sum(df[:Popular_Vote])), 
-	     on=[:State, :Year])[:x1]
+  join(state_data, by(state_data, [:Year, :State], 
+                      df -> sum(df[:Popular_Vote])), 
+       on=[:State, :Year])[:x1]
 state_data[:Popular_Percent] = 
-	map((vote, total) -> vote / total * 100, state_data[:Popular_Vote], 
-	    state_data[:Popular_Total])
+  map((vote, total) -> vote / total * 100, state_data[:Popular_Vote], 
+      state_data[:Popular_Total])
 
 # delaware?!?
 delaware = state_data[state_data[:State] .== "Delaware", :]
 delaware[:Popular_Total] = 
-	join(delaware, by(delaware, [:Year, :State], df -> sum(df[:Popular_Vote])), 
-	     on=[:State, :Year])[:x1]
+  join(delaware, by(delaware, [:Year, :State], df -> sum(df[:Popular_Vote])), 
+       on=[:State, :Year])[:x1]
 delaware[:Popular_Percent] =
-	map((vote, total) -> vote / total * 100, delaware[:Popular_Vote],
-	    delaware[:Popular_Total])
+  map((vote, total) -> vote / total * 100, delaware[:Popular_Vote],
+      delaware[:Popular_Total])
 state_data[state_data[:State] .== "Delaware", :] = delaware
 
 # dc?!?
 dc = state_data[state_data[:State] .== "D. C.", :]
 dc[:Popular_Total] = 
-	join(dc, by(dc, [:Year, :State], df -> sum(df[:Popular_Vote])), 
-	     on=[:State, :Year])[:x1]
+  join(dc, by(dc, [:Year, :State], df -> sum(df[:Popular_Vote])), 
+       on=[:State, :Year])[:x1]
 dc[:Popular_Percent] =
-	map((vote, total) -> vote / total * 100, dc[:Popular_Vote],
-	    dc[:Popular_Total])
+  map((vote, total) -> vote / total * 100, dc[:Popular_Vote],
+      dc[:Popular_Total])
 state_data[state_data[:State] .== "D. C.", :] = dc
 
 # get electoral vote percents by year
 state_data[:Electoral_Total] = 
-	join(state_data, by(state_data, [:Year, :State], 
-	                    df -> sum(df[:Electoral_Vote])), 
-	     on=[:State, :Year])[:x1]
+  join(state_data, by(state_data, [:Year, :State], 
+                      df -> sum(df[:Electoral_Vote])), 
+       on=[:State, :Year])[:x1]
 state_data[:Electoral_Percent] = 
-	map((vote, total) -> vote / total * 100, state_data[:Electoral_Vote], 
-	    state_data[:Electoral_Total])
+  map((vote, total) -> vote / total * 100, state_data[:Electoral_Vote], 
+      state_data[:Electoral_Total])
 
 
 ################################################################################
@@ -66,27 +66,27 @@ state_data[:Electoral_Percent] =
 ################################################################################
 
 new_england = 
-	[ "Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", 
-	  "Vermont" ]
+  [ "Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", 
+    "Vermont" ]
 mid_atlantic = 
-	[ "New Jersey", "New York", "Pennsylvania" ]
+  [ "New Jersey", "New York", "Pennsylvania" ]
 east_north_central = 
-	[ "Illinois", "Indiana", "Michigan", "Ohio", "Wisconsin" ]
+  [ "Illinois", "Indiana", "Michigan", "Ohio", "Wisconsin" ]
 west_north_central =
-	[ "Iowa", "Kansas", "Minnesota", "Missouri", "Nebraska", "North Dakota",
-	  "South Dakota" ]
+  [ "Iowa", "Kansas", "Minnesota", "Missouri", "Nebraska", "North Dakota",
+    "South Dakota" ]
 south_atlantic =
-	[ "Delaware", "Florida", "Georgia", "Maryland", "North Carolina", 
-	  "South Carolina", "Virginia", "D. C.", "West Virginia" ]
+  [ "Delaware", "Florida", "Georgia", "Maryland", "North Carolina", 
+    "South Carolina", "Virginia", "D. C.", "West Virginia" ]
 east_south_central = 
-	[ "Alabama", "Kentucky", "Mississippi", "Tennessee" ]
+  [ "Alabama", "Kentucky", "Mississippi", "Tennessee" ]
 west_south_central = 
-	[ "Arkansas", "Louisiana", "Oklahoma", "Texas" ]
+  [ "Arkansas", "Louisiana", "Oklahoma", "Texas" ]
 mountain = 
-	[ "Arizona", "Colorado", "Idaho", "Montana", "Nevada", "New Mexico", "Utah", 
-	  "Wyoming"]
+  [ "Arizona", "Colorado", "Idaho", "Montana", "Nevada", "New Mexico", "Utah", 
+    "Wyoming"]
 pacific = 
-	[ "Alaska", "California", "Hawaii", "Oregon", "Washington" ]
+  [ "Alaska", "California", "Hawaii", "Oregon", "Washington" ]
 
 northeast = vcat(new_england, mid_atlantic)
 midwest   = vcat(east_north_central, west_north_central)
@@ -94,41 +94,41 @@ south     = vcat(south_atlantic, east_south_central, west_south_central)
 west      = vcat(mountain, pacific)
 
 state_data = 
-	join(state_data, 
-	     (by(state_data, [:State]) do df
-	         if !isempty(intersect(northeast, df[:State]))
-		         DataFrame(Region="Northeast")
-         	elseif !isempty(intersect(midwest, df[:State]))
-         		DataFrame(Region="Midwest")
-         	elseif !isempty(intersect(west, df[:State]))
-         		DataFrame(Region="West")
-         	elseif !isempty(intersect(south, df[:State]))
-         		DataFrame(Region="South")
-         	end
+  join(state_data, 
+       (by(state_data, [:State]) do df
+           if !isempty(intersect(northeast, df[:State]))
+             DataFrame(Region="Northeast")
+           elseif !isempty(intersect(midwest, df[:State]))
+             DataFrame(Region="Midwest")
+           elseif !isempty(intersect(west, df[:State]))
+             DataFrame(Region="West")
+           elseif !isempty(intersect(south, df[:State]))
+             DataFrame(Region="South")
+           end
          end), on=[:State])
 
 state_data = 
-	join(state_data, 
-	     (by(state_data, [:State]) do df
-	         if !isempty(intersect(west_south_central, df[:State]))
-		         DataFrame(Division="West South Central")
-         	elseif !isempty(intersect(new_england, df[:State]))
-         		DataFrame(Division="New England")
-         	elseif !isempty(intersect(mid_atlantic, df[:State]))
-         		DataFrame(Division="Mid-Atlantic")
-         	elseif !isempty(intersect(east_north_central, df[:State]))
-         		DataFrame(Division="East North Central")
-         	elseif !isempty(intersect(west_north_central, df[:State]))
-         		DataFrame(Division="West North Central")
-         	elseif !isempty(intersect(south_atlantic, df[:State]))
-         		DataFrame(Division="South Atlantic")
-         	elseif !isempty(intersect(east_south_central, df[:State]))
-         		DataFrame(Division="East South Central")
-         	elseif !isempty(intersect(mountain, df[:State]))
-         		DataFrame(Division="Mountain")
-         	elseif !isempty(intersect(pacific, df[:State]))
-         		DataFrame(Division="Pacific")
-         	end
+  join(state_data, 
+       (by(state_data, [:State]) do df
+           if !isempty(intersect(west_south_central, df[:State]))
+             DataFrame(Division="West South Central")
+           elseif !isempty(intersect(new_england, df[:State]))
+             DataFrame(Division="New England")
+           elseif !isempty(intersect(mid_atlantic, df[:State]))
+             DataFrame(Division="Mid-Atlantic")
+           elseif !isempty(intersect(east_north_central, df[:State]))
+             DataFrame(Division="East North Central")
+           elseif !isempty(intersect(west_north_central, df[:State]))
+             DataFrame(Division="West North Central")
+           elseif !isempty(intersect(south_atlantic, df[:State]))
+             DataFrame(Division="South Atlantic")
+           elseif !isempty(intersect(east_south_central, df[:State]))
+             DataFrame(Division="East South Central")
+           elseif !isempty(intersect(mountain, df[:State]))
+             DataFrame(Division="Mountain")
+           elseif !isempty(intersect(pacific, df[:State]))
+             DataFrame(Division="Pacific")
+           end
          end), on=[:State])
 
 
@@ -137,25 +137,25 @@ state_data =
 ################################################################################
 
 for state in groupby(state_data, :State)
-	firstyear = Int(minimum(state[:Year]))-4
-	lastyear = Int(maximum(state[:Year]))+4
-	xticks = collect(firstyear:8:lastyear)
-	if length(xticks) > 20
-		xticks = collect(firstyear:12:lastyear)
-	end
-	yticks = collect(0:25:100)
-	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
-	         Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
+  firstyear = Int(minimum(state[:Year]))-4
+  lastyear = Int(maximum(state[:Year]))+4
+  xticks = collect(firstyear:8:lastyear)
+  if length(xticks) > 20
+    xticks = collect(firstyear:12:lastyear)
+  end
+  yticks = collect(0:25:100)
+  p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Guide.xlabel("Year"), 
+           Guide.ylabel("Popular Vote (%)"), Geom.line, Geom.point, 
             Guide.title(string(state[:State][1])), 
-	         Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
+           Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
+           Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
             Theme(major_label_font_size=24px, key_title_font_size=24px, 
                   minor_label_font_size=18px, key_label_font_size=18px,
-	               line_width=2px,
-		            grid_line_width=1px, grid_color=colorant"black",
+                 line_width=2px,
+                grid_line_width=1px, grid_color=colorant"black",
                   key_position=:bottom, key_max_columns=7))
-	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
-	draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 32cm, 16cm), p)
+  slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
+  draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 32cm, 16cm), p)
 end
 
 
@@ -168,26 +168,26 @@ democrat_data = state_data[state_data[:Party] .== "Democratic", :]
 bi_state_data = vcat(republican_data, democrat_data)
 
 for state in groupby(bi_state_data, :State)
-	firstyear = Int(minimum(state[:Year]))-4
-	lastyear = Int(maximum(state[:Year]))+4
-	xticks = collect(firstyear:8:lastyear)
-	if length(xticks) > 20
-		xticks = collect(firstyear:12:lastyear)
-	end
-	yticks = collect(0:25:100)
-	p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
-	         Geom.point, Scale.discrete_color_manual("red", "blue"),
-	         Guide.ylabel("Popular Vote (%)"), Guide.xlabel("Year"), 
-	         Guide.title(string(state[:State][1])), 
-	         Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
-	         Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
-				Theme(major_label_font_size=24px, key_title_font_size=24px, 
-						minor_label_font_size=18px, key_label_font_size=18px,
-	               line_width=2px,
-	               grid_line_width=1px, grid_color=colorant"black",
-	               key_position=:bottom, key_max_columns=7))
-	slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
-	draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 32cm, 16cm), p)
+  firstyear = Int(minimum(state[:Year]))-4
+  lastyear = Int(maximum(state[:Year]))+4
+  xticks = collect(firstyear:8:lastyear)
+  if length(xticks) > 20
+    xticks = collect(firstyear:12:lastyear)
+  end
+  yticks = collect(0:25:100)
+  p = plot(state, x=:Year, y=:Popular_Percent, color=:Party, Geom.line, 
+           Geom.point, Scale.discrete_color_manual("red", "blue"),
+           Guide.ylabel("Popular Vote (%)"), Guide.xlabel("Year"), 
+           Guide.title(string(state[:State][1])), 
+           Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks), 
+           Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100), 
+        Theme(major_label_font_size=24px, key_title_font_size=24px, 
+            minor_label_font_size=18px, key_label_font_size=18px,
+                 line_width=2px,
+                 grid_line_width=1px, grid_color=colorant"black",
+                 key_position=:bottom, key_max_columns=7))
+  slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
+  draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 32cm, 16cm), p)
 end
 
 
@@ -197,31 +197,31 @@ end
 
 bi_state_data_1860 = bi_state_data[bi_state_data[:Year] .>= 1860, :]
 bi_state_diff = 
-	by( bi_state_data_1860, [:Year, :State, :Region, :Division], 
-	    df -> DataFrame(
-	             Difference = 
-	                (df[:Popular_Percent][df[:Party] .== "Republican"] - 
-	                 df[:Popular_Percent][df[:Party] .== "Democratic"]),
-	             Total = 
-	                (sum(df[:Popular_Percent][df[:Party] .== "Republican"]) + 
-	                 sum(df[:Popular_Percent][df[:Party] .== "Democratic"])) ) )
+  by( bi_state_data_1860, [:Year, :State, :Region, :Division], 
+      df -> DataFrame(
+               Difference = 
+                  (df[:Popular_Percent][df[:Party] .== "Republican"] - 
+                   df[:Popular_Percent][df[:Party] .== "Democratic"]),
+               Total = 
+                  (sum(df[:Popular_Percent][df[:Party] .== "Republican"]) + 
+                   sum(df[:Popular_Percent][df[:Party] .== "Democratic"])) ) )
 
 firstyear = Int(minimum(bi_state_diff[:Year]))-4
 lastyear = Int(maximum(bi_state_diff[:Year]))+4
 xticks = collect(firstyear:8:lastyear)
 if length(xticks) > 20
-	xticks = collect(firstyear:12:lastyear)
+  xticks = collect(firstyear:12:lastyear)
 end
 
 p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point, 
          color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
          Guide.title("Republican - Democratic Popular Vote (%) by State"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
-	      Guide.xticks(ticks=xticks),  
+        Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-	            line_width=2px,
-	            grid_line_width=1px, grid_color=colorant"black",
+              line_width=2px,
+              grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_states.svg"), 32cm, 16cm), p)
 
@@ -229,11 +229,11 @@ p = plot(bi_state_diff, x=:Year, y=:Total, Geom.line, Geom.point,
          color=:State, Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymax=100), 
          Guide.title("Total Republican and Democratic Popular Vote (%) by State"),
          Guide.ylabel("Total (%)"), Guide.xlabel("Year"), 
-	      Guide.xticks(ticks=xticks),  
+        Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-	            line_width=2px,
-	            grid_line_width=1px, grid_color=colorant"black",
+              line_width=2px,
+              grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_total_all_states.svg"), 32cm, 16cm), p)
 
@@ -243,34 +243,34 @@ draw(SVG(string("plots/bi_total_all_states.svg"), 32cm, 16cm), p)
 ################################################################################
 
 bi_region_diff = 
-	by( bi_state_data_1860, [:Year, :Region], 
-	    df -> DataFrame(
-	             Difference =
-	                (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
-	                 sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
-	                 sum(df[:Popular_Total])*100,
-	             Error = 
-	                std((df[:Popular_Vote][df[:Party] .== "Republican"] -
-	                     df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
-	                    (df[:Popular_Total][df[:Party] .== "Republican"] + 
-	                     df[:Popular_Total][df[:Party] .== "Democratic"]), 
-	                    weights(
+  by( bi_state_data_1860, [:Year, :Region], 
+      df -> DataFrame(
+               Difference =
+                  (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
+                   sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
+                   sum(df[:Popular_Total])*100,
+               Error = 
+                  std((df[:Popular_Vote][df[:Party] .== "Republican"] -
+                       df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
+                      (df[:Popular_Total][df[:Party] .== "Republican"] + 
+                       df[:Popular_Total][df[:Party] .== "Democratic"]), 
+                      weights(
                           df[:Popular_Total][df[:Party] .== "Republican"] + 
                           df[:Popular_Total][df[:Party] .== "Democratic"])
-	                    ).* 100 ) )
+                      ).* 100 ) )
 
 p = plot(bi_region_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Region, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
          Guide.title("Republican - Democratic Popular Vote (%) by Region"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
-	      Guide.xticks(ticks=xticks),  
-			Geom.ribbon,  
-			ymin=bi_region_diff[:Difference] - bi_region_diff[:Error],
-			ymax=bi_region_diff[:Difference] + bi_region_diff[:Error],
+        Guide.xticks(ticks=xticks),  
+      Geom.ribbon,  
+      ymin=bi_region_diff[:Difference] - bi_region_diff[:Error],
+      ymax=bi_region_diff[:Difference] + bi_region_diff[:Error],
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-	            line_width=2px,
-	            grid_line_width=1px, grid_color=colorant"black",
+              line_width=2px,
+              grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_regions.svg"), 32cm, 16cm), p)
 
@@ -280,34 +280,34 @@ draw(SVG(string("plots/bi_diff_all_regions.svg"), 32cm, 16cm), p)
 ################################################################################
 
 bi_division_diff = 
-	by( bi_state_data_1860, [:Year, :Division], 
-	    df -> DataFrame(
-	             Difference =
-	                (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
-	                 sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
-	                sum(df[:Popular_Total])*100,
-	             Error = 
-	                std((df[:Popular_Vote][df[:Party] .== "Republican"] -
-	                     df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
-	                    (df[:Popular_Total][df[:Party] .== "Republican"] + 
-	                     df[:Popular_Total][df[:Party] .== "Democratic"]), 
-	                weights(
-	                   df[:Popular_Total][df[:Party] .== "Republican"] + 
-	                   df[:Popular_Total][df[:Party] .== "Democratic"])
-	             ).* 100 ) )
+  by( bi_state_data_1860, [:Year, :Division], 
+      df -> DataFrame(
+               Difference =
+                  (sum(df[:Popular_Vote][df[:Party] .== "Republican"]) -
+                   sum(df[:Popular_Vote][df[:Party] .== "Democratic"])) /
+                  sum(df[:Popular_Total])*100,
+               Error = 
+                  std((df[:Popular_Vote][df[:Party] .== "Republican"] -
+                       df[:Popular_Vote][df[:Party] .== "Democratic"]) ./
+                      (df[:Popular_Total][df[:Party] .== "Republican"] + 
+                       df[:Popular_Total][df[:Party] .== "Democratic"]), 
+                  weights(
+                     df[:Popular_Total][df[:Party] .== "Republican"] + 
+                     df[:Popular_Total][df[:Party] .== "Democratic"])
+               ).* 100 ) )
 
 p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
          color=:Division, Coord.Cartesian(xmin=firstyear, xmax=lastyear), 
          Guide.title("Republican - Democratic Popular Vote (%) by Division"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"), 
-			Geom.ribbon,  
-			ymin=bi_division_diff[:Difference] - bi_division_diff[:Error],
-			ymax=bi_division_diff[:Difference] + bi_division_diff[:Error],
-	      Guide.xticks(ticks=xticks),  
+      Geom.ribbon,  
+      ymin=bi_division_diff[:Difference] - bi_division_diff[:Error],
+      ymax=bi_division_diff[:Difference] + bi_division_diff[:Error],
+        Guide.xticks(ticks=xticks),  
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-	            line_width=2px,
-	            grid_line_width=1px, grid_color=colorant"black",
+              line_width=2px,
+              grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_divisions.svg"), 32cm, 16cm), p)
 
@@ -323,13 +323,13 @@ draw(SVG(string("plots/bi_diff_all_divisions.svg"), 32cm, 16cm), p)
 pca_frame = DataFrame()
 pca_frame[:Year] = collect(1860:4:2012)
 for state in groupby(bi_state_diff, :State)
-	pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
-	rename!(pca_frame, :Difference, symbol(state[:State][1]))
+  pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
+  rename!(pca_frame, :Difference, symbol(state[:State][1]))
 end
 
 # subtract means
 for idx in 2:ncol(pca_frame)
-	pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
+  pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
 end
 
 features = convert(Array, pca_frame[:, 2:end]) 
@@ -341,7 +341,7 @@ firstyear = Int(minimum(pca_frame[:Year]))-4
 lastyear = Int(maximum(pca_frame[:Year]))+4
 xticks = collect(firstyear:8:lastyear)
 if length(xticks) > 20
-	xticks = collect(firstyear:12:lastyear)
+  xticks = collect(firstyear:12:lastyear)
 end
 
 p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar, 
@@ -364,7 +364,7 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Guide.title("PCA of States"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-					point_label_font_size=13px,
+          point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
@@ -381,7 +381,7 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Guide.title("k-means Clustering of State PCA"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-					point_label_font_size=13px,
+          point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
@@ -422,13 +422,13 @@ bi_some_diff = bi_some_diff[bi_some_diff[:State] .!= "Alaska", :]
 pca_frame = DataFrame()
 pca_frame[:Year] = collect(1860:4:2012)
 for state in groupby(bi_some_diff, :State)
-	pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
-	rename!(pca_frame, :Difference, symbol(state[:State][1]))
+  pca_frame = join(pca_frame, state[:, [:Year, :Difference]], on=:Year, kind=:inner)
+  rename!(pca_frame, :Difference, symbol(state[:State][1]))
 end
 
 # subtract means
 for idx in 2:ncol(pca_frame)
-	pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
+  pca_frame[:,idx] = (pca_frame[:,idx] - mean(pca_frame[:,idx])) / 100
 end
 
 features = convert(Array, pca_frame[:, 2:end]) 
@@ -440,7 +440,7 @@ firstyear = Int(minimum(pca_frame[:Year]))-4
 lastyear = Int(maximum(pca_frame[:Year]))+4
 xticks = collect(firstyear:8:lastyear)
 if length(xticks) > 20
-	xticks = collect(firstyear:12:lastyear)
+  xticks = collect(firstyear:12:lastyear)
 end
 
 p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar, 
@@ -463,7 +463,7 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Guide.title("PCA of States"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-					point_label_font_size=13px,
+          point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
@@ -480,7 +480,7 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Guide.title("k-means Clustering of State PCA"), 
          Theme(major_label_font_size=24px, key_title_font_size=24px, 
                minor_label_font_size=18px, key_label_font_size=18px,
-					point_label_font_size=13px,
+          point_label_font_size=13px,
                line_width=2px,
                grid_line_width=1px, grid_color=colorant"black",
                key_position=:bottom, key_max_columns=10))
@@ -516,6 +516,6 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 #         Geom.label(position=:dynamic, hide_overlaps=false), 
 #         Theme(major_label_font_size=24px, key_title_font_size=24px, 
 #               minor_label_font_size=18px, key_label_font_size=18px,
-#	            line_width=2px,
-#	            grid_line_width=1px, grid_color=colorant"black",
-#					key_position=:none, key_max_columns=10))
+#              line_width=2px,
+#              grid_line_width=1px, grid_color=colorant"black",
+#          key_position=:none, key_max_columns=10))

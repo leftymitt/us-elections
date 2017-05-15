@@ -23,19 +23,19 @@ national_data = national_data[national_data[:Party] .!= "-", :]
 
 # get popular vote percents by year
 national_data[:Popular_Total] = 
-	join(national_data, by(national_data, :Year, df -> sum(df[:Popular_Vote])), 
-	     on=:Year)[:x1]
+  join(national_data, by(national_data, :Year, df -> sum(df[:Popular_Vote])), 
+       on=:Year)[:x1]
 national_data[:Popular_Percent] = 
-	map((vote, total) -> vote / total * 100, national_data[:Popular_Vote], 
-	    national_data[:Popular_Total])
+  map((vote, total) -> vote / total * 100, national_data[:Popular_Vote], 
+      national_data[:Popular_Total])
 
 # get electoral vote percents by year
 national_data[:Electoral_Total] = 
-	join(national_data,
+  join(national_data,
         by(national_data, :Year, df -> sum(df[:Electoral_Vote])), on=:Year)[:x1]
 national_data[:Electoral_Percent] = 
-	map((vote, total) -> vote / total * 100, national_data[:Electoral_Vote], 
-	    national_data[:Electoral_Total])
+  map((vote, total) -> vote / total * 100, national_data[:Electoral_Vote], 
+      national_data[:Electoral_Total])
 
 
 ################################################################################
@@ -46,7 +46,7 @@ firstyear = minimum(national_data[:Year]) - 4
 lastyear = maximum(national_data[:Year]) + 4
 ticks = collect(firstyear:8:lastyear)
 if length(ticks) > 20
-	ticks = collect(firstyear:12:lastyear)
+  ticks = collect(firstyear:12:lastyear)
 end
 
 melty_frame = melt(national_data, [:Party, :Year])
@@ -91,7 +91,7 @@ firstyear = minimum(bi_nation_data[:Year]) - 4
 lastyear = maximum(bi_nation_data[:Year]) + 4
 ticks = collect(firstyear:8:lastyear)
 if length(ticks) > 20
-	ticks = collect(firstyear:12:lastyear)
+  ticks = collect(firstyear:12:lastyear)
 end
 
 melty_frame = melt(bi_nation_data, [:Party, :Year])
@@ -153,10 +153,10 @@ bi_nation_diff = by( bi_nation_data_1860, [:Year],
                            df[:Popular_Percent][df[:Party] .== "Democratic"] )
 rename!(bi_nation_diff, :x1, :Popular_Diff)
 bi_nation_diff = 
-	join(bi_nation_diff, 
-	     by(bi_nation_data_1860, [:Year], 
-	     df -> df[:Electoral_Percent][df[:Party] .== "Republican"] - 
-	           df[:Electoral_Percent][df[:Party] .== "Democratic"]), on=:Year)
+  join(bi_nation_diff, 
+       by(bi_nation_data_1860, [:Year], 
+       df -> df[:Electoral_Percent][df[:Party] .== "Republican"] - 
+             df[:Electoral_Percent][df[:Party] .== "Democratic"]), on=:Year)
 rename!(bi_nation_diff, :x1, :Electoral_Diff)
 
 p = plot(bi_nation_diff, x=:Popular_Diff, y=:Electoral_Diff, 
