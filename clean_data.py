@@ -24,7 +24,7 @@ def get_state_data(data, year):
     frame = pd.DataFrame(columns=fields)
     header = [ td.get_text() for td in data[0].find_all("td") ][1:]
     header_midpoint = header.index('Total\xa0Vote')+1
-    num_candidates = len(header[header_midpoint:]) 
+    num_candidates = len(header[header_midpoint:])
     candidates = header[header_midpoint:]
     num_ev = len(header[1:header_midpoint-1])
     for row in range(0, len(data[1].find_all("tr"))):
@@ -32,7 +32,7 @@ def get_state_data(data, year):
         for idx, candidate in enumerate(candidates):
             if idx < num_ev:
                 content = [ row[0], candidate, row[1+idx], row[2+num_ev+idx], year]
-            else: 
+            else:
                 content = [ row[0], candidate, '0', row[2+num_ev+idx], year]
             frame = frame.append(pd.Series(content, fields), ignore_index=True)
     return frame
@@ -43,11 +43,11 @@ def fix_data(national, state):
     candidate = []
     party = []
     years = sorted(set(state['Year']))
-    for year in years: 
+    for year in years:
         for name in state['PresidentialCandidate'][state['Year'] == year]:
             full_names = national['PresidentialCandidate'][national['Year'] == year]
             test = [ full_name for full_name in full_names if re.search(name, full_name) ]
-            if test: 
+            if test:
                 candidate.append(test[0])
                 party.append(national['PoliticalParty'][full_names[full_names == test[0]].index[0]])
             else:
