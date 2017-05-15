@@ -1,4 +1,4 @@
-#! /bin/env julia
+#! /usr/bin/env julia
 
 using Gadfly
 using DataFrames
