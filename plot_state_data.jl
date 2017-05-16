@@ -7,6 +7,7 @@ using Distances
 using StatsBase
 using MultivariateStats
 
+Gadfly.push_theme(:dark)
 include("utils.jl")
 
 ################################################################################
@@ -149,10 +150,10 @@ for state in groupby(state_data, :State)
             Guide.title(string(state[:State][1])),
            Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks),
            Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100),
-            Theme(major_label_font_size=24px, key_title_font_size=24px,
+            style(major_label_font_size=24px, key_title_font_size=24px,
                   minor_label_font_size=18px, key_label_font_size=18px,
                  line_width=2px,
-                grid_line_width=1px, grid_color=colorant"black",
+                grid_line_width=1px,
                   key_position=:bottom, key_max_columns=7))
   slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
   draw(SVG(lowercase(strip(string("plots/all_", slug, ".svg"))), 32cm, 16cm), p)
@@ -181,10 +182,10 @@ for state in groupby(bi_state_data, :State)
            Guide.title(string(state[:State][1])),
            Guide.xticks(ticks=xticks), Guide.yticks(ticks=yticks),
            Coord.Cartesian(xmin=firstyear, xmax=lastyear, ymin=0, ymax=100),
-        Theme(major_label_font_size=24px, key_title_font_size=24px,
+        style(major_label_font_size=24px, key_title_font_size=24px,
             minor_label_font_size=18px, key_label_font_size=18px,
                  line_width=2px,
-                 grid_line_width=1px, grid_color=colorant"black",
+                 grid_line_width=1px,
                  key_position=:bottom, key_max_columns=7))
   slug = replace(replace(string(state[:State][1]), " ", "_"), ".", "")
   draw(SVG(lowercase(strip(string("plots/bi_", slug, ".svg"))), 32cm, 16cm), p)
@@ -218,10 +219,10 @@ p = plot(bi_state_diff, x=:Year, y=:Difference, Geom.line, Geom.point,
          Guide.title("Republican - Democratic Popular Vote (%) by State"),
          Guide.ylabel("Difference (%)"), Guide.xlabel("Year"),
         Guide.xticks(ticks=xticks), 
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
               line_width=2px,
-              grid_line_width=1px, grid_color=colorant"black",
+              grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_states.svg"), 32cm, 16cm), p)
 
@@ -230,10 +231,10 @@ p = plot(bi_state_diff, x=:Year, y=:Total, Geom.line, Geom.point,
          Guide.title("Total Republican and Democratic Popular Vote (%) by State"),
          Guide.ylabel("Total (%)"), Guide.xlabel("Year"),
         Guide.xticks(ticks=xticks), 
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
               line_width=2px,
-              grid_line_width=1px, grid_color=colorant"black",
+              grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_total_all_states.svg"), 32cm, 16cm), p)
 
@@ -267,10 +268,10 @@ p = plot(bi_region_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
       Geom.ribbon, 
       ymin=bi_region_diff[:Difference] - bi_region_diff[:Error],
       ymax=bi_region_diff[:Difference] + bi_region_diff[:Error],
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
               line_width=2px,
-              grid_line_width=1px, grid_color=colorant"black",
+              grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_regions.svg"), 32cm, 16cm), p)
 
@@ -304,10 +305,10 @@ p = plot(bi_division_diff, x=:Year, y=:Difference, Geom.point, Geom.line,
       ymin=bi_division_diff[:Difference] - bi_division_diff[:Error],
       ymax=bi_division_diff[:Difference] + bi_division_diff[:Error],
         Guide.xticks(ticks=xticks), 
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
               line_width=2px,
-              grid_line_width=1px, grid_color=colorant"black",
+              grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG(string("plots/bi_diff_all_divisions.svg"), 32cm, 16cm), p)
 
@@ -347,10 +348,10 @@ end
 p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar,
          Guide.xlabel("Year"), Guide.ylabel("PC1 Loadings"),
          Guide.xticks(ticks=xticks),
-         Theme(major_label_font_size=20px, key_title_font_size=20px,
+         style(major_label_font_size=20px, key_title_font_size=20px,
                minor_label_font_size=14px, key_label_font_size=14px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_pc1_state.svg", 12cm, 8cm), p)
 
@@ -362,11 +363,11 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic, hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("PCA of States"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
           point_label_font_size=13px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_state.svg", 20cm, 16cm), p)
 
@@ -379,11 +380,11 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic,hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("k-means Clustering of State PCA"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
           point_label_font_size=13px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_kmeans_state.svg", 20cm, 16cm), p)
 
@@ -397,10 +398,10 @@ p = plot(bi_state_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic,hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("DBSCAN Clustering of State PCA"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_max_columns=10))
 
 
@@ -446,10 +447,10 @@ end
 p = plot(x=pca_frame[:Year], y=projection(pc)[:,1], Geom.bar,
          Guide.xlabel("Year"), Guide.ylabel("PC1 Loadings"),
          Guide.xticks(ticks=xticks),
-         Theme(major_label_font_size=20px, key_title_font_size=20px,
+         style(major_label_font_size=20px, key_title_font_size=20px,
                minor_label_font_size=14px, key_label_font_size=14px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_pc1_some_state.svg", 12cm, 8cm), p)
 
@@ -461,11 +462,11 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic, hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("PCA of States"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
           point_label_font_size=13px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_some_state.svg", 20cm, 16cm), p)
 
@@ -478,11 +479,11 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic,hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("k-means Clustering of State PCA"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
           point_label_font_size=13px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_position=:bottom, key_max_columns=10))
 draw(SVG("plots/bi_diff_pca_kmeans_some_state.svg", 20cm, 16cm), p)
 
@@ -496,10 +497,10 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
          Geom.label(position=:dynamic,hide_overlaps=true),
          Guide.xlabel("PC1"), Guide.ylabel("PC2"),
          Guide.title("DBSCAN Clustering of State PCA"),
-         Theme(major_label_font_size=24px, key_title_font_size=24px,
+         style(major_label_font_size=24px, key_title_font_size=24px,
                minor_label_font_size=18px, key_label_font_size=18px,
                line_width=2px,
-               grid_line_width=1px, grid_color=colorant"black",
+               grid_line_width=1px,
                key_max_columns=10))
 
 
@@ -514,8 +515,8 @@ p = plot(bi_some_diff, x=pca_reduced[1,:], y=pca_reduced[2,:],
 #         color=[ string(year) for year in pca_frame[:Year] ], Geom.point,
 #         label=[ string(year) for year in pca_frame[:Year] ],
 #         Geom.label(position=:dynamic, hide_overlaps=false),
-#         Theme(major_label_font_size=24px, key_title_font_size=24px,
+#         style(major_label_font_size=24px, key_title_font_size=24px,
 #               minor_label_font_size=18px, key_label_font_size=18px,
 #              line_width=2px,
-#              grid_line_width=1px, grid_color=colorant"black",
+#              grid_line_width=1px,
 #          key_position=:none, key_max_columns=10))
